@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using FamConnect.Models;
+using Microsoft.AspNet.Identity;
 
 namespace FamConnect.Controllers
 {
@@ -17,8 +18,14 @@ namespace FamConnect.Controllers
         // GET: ConnectionActions
         public ActionResult Index()
         {
-            var connectionActions = db.ConnectionActions.Include(c => c.FamilyMember);
-            return View(connectionActions.ToList());
+            var currentUser = User.Identity.GetUserId();
+            var connections = from ConnectionAction in db.ConnectionActions
+                              where ConnectionAction.UserId == currentUser
+                              select ConnectionAction;
+            return View(connections.ToList());
+
+            //var connectionActions = db.ConnectionActions.Include(c => c.FamilyMember);
+            //return View(connectionActions.ToList());
         }
 
         // GET: ConnectionActions/Details/5
@@ -52,6 +59,7 @@ namespace FamConnect.Controllers
         {
             if (ModelState.IsValid)
             {
+                connectionAction.UserId = User.Identity.GetUserId();
                 db.ConnectionActions.Add(connectionAction);
                 db.SaveChanges();
                 return RedirectToAction("Index");
