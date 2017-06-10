@@ -206,17 +206,14 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
-    <Compile Include="Controllers\ConnectionActionsController.cs" />
     <Compile Include="Controllers\FamilyMembersController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
-    <Compile Include="Controllers\MilestonesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\ConnectionAction.cs" />
-    <Compile Include="Models\FamConnectContext.cs" />
     <Compile Include="Models\FamilyMember.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
@@ -301,19 +298,10 @@
     <Content Include="Views\FamilyMembers\Details.cshtml" />
     <Content Include="Views\FamilyMembers\Edit.cshtml" />
     <Content Include="Views\FamilyMembers\Index.cshtml" />
-    <Content Include="Views\Milestones\Create.cshtml" />
-    <Content Include="Views\Milestones\Delete.cshtml" />
-    <Content Include="Views\Milestones\Details.cshtml" />
-    <Content Include="Views\Milestones\Edit.cshtml" />
-    <Content Include="Views\Milestones\Index.cshtml" />
-    <Content Include="Views\ConnectionActions\Create.cshtml" />
-    <Content Include="Views\ConnectionActions\Delete.cshtml" />
-    <Content Include="Views\ConnectionActions\Details.cshtml" />
-    <Content Include="Views\ConnectionActions\Edit.cshtml" />
-    <Content Include="Views\ConnectionActions\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Migrations\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

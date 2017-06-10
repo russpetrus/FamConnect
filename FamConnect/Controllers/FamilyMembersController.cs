@@ -13,18 +13,16 @@ namespace FamConnect.Controllers
 {
     public class FamilyMembersController : Controller
     {
-        private FamConnectContext db = new FamConnectContext();
+        private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: FamilyMembers
         public ActionResult Index()
         {
-
             var currentUser = User.Identity.GetUserId();
             var familyMembers = from FamilyMember in db.FamilyMembers
                                 where FamilyMember.UserId == currentUser
                                 select FamilyMember;
             return View(familyMembers.ToList());
-
         }
 
         // GET: FamilyMembers/Details/5
@@ -57,7 +55,6 @@ namespace FamConnect.Controllers
         {
             if (ModelState.IsValid)
             {
-                //automatically populates the UserId equal to 
                 familyMember.UserId = User.Identity.GetUserId();
                 db.FamilyMembers.Add(familyMember);
                 db.SaveChanges();

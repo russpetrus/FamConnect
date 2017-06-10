@@ -36,5 +36,7 @@ namespace FamConnect.Models
         {
             return new ApplicationDbContext();
         }
+
+        public System.Data.Entity.DbSet<FamConnect.Models.FamilyMember> FamilyMembers { get; set; }
     }
 }
