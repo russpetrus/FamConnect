@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using FamConnect.Models;
+using Microsoft.AspNet.Identity;
 
 namespace FamConnect.Controllers
 {
@@ -17,7 +18,12 @@ namespace FamConnect.Controllers
         // GET: Milestones
         public ActionResult Index()
         {
-            return View(db.Milestones.ToList());
+
+            var currentUser = User.Identity.GetUserId();
+            var milestones = from Milestone in db.Milestones
+                             where Milestone.UserId == currentUser
+                             select Milestone;
+            return View(milestones.ToList());
         }
 
         // GET: Milestones/Details/5
@@ -50,6 +56,8 @@ namespace FamConnect.Controllers
         {
             if (ModelState.IsValid)
             {
+                milestone.UserId = User.Identity.GetUserId();
+                milestone.Accomplished = false;
                 db.Milestones.Add(milestone);
                 db.SaveChanges();
                 return RedirectToAction("Index");

@@ -57,6 +57,7 @@ namespace FamConnect.Controllers
         {
             if (ModelState.IsValid)
             {
+                //automatically populates the UserId equal to 
                 familyMember.UserId = User.Identity.GetUserId();
                 db.FamilyMembers.Add(familyMember);
                 db.SaveChanges();
