@@ -1,0 +1,57 @@
+﻿@model IEnumerable<FamConnect.Models.ConnectionAction>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.FamilyMember.FirstName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ConnectionActionDescription)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PointsEarned)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ConnectionActionDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UserId)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.FamilyMember.FirstName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ConnectionActionDescription)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PointsEarned)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ConnectionActionDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UserId)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ConnectionActionId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ConnectionActionId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ConnectionActionId })
+        </td>
+    </tr>
+}
+
+</table>
