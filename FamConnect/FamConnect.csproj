@@ -209,6 +209,7 @@
     <Compile Include="Controllers\FamilyMembersController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\MilestonesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -298,6 +299,11 @@
     <Content Include="Views\FamilyMembers\Details.cshtml" />
     <Content Include="Views\FamilyMembers\Edit.cshtml" />
     <Content Include="Views\FamilyMembers\Index.cshtml" />
+    <Content Include="Views\Milestones\Create.cshtml" />
+    <Content Include="Views\Milestones\Delete.cshtml" />
+    <Content Include="Views\Milestones\Details.cshtml" />
+    <Content Include="Views\Milestones\Edit.cshtml" />
+    <Content Include="Views\Milestones\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

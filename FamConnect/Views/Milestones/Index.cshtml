@@ -1,0 +1,57 @@
+﻿@model IEnumerable<FamConnect.Models.Milestone>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.MilestoneReward)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MilestonePointsRequired)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Accomplished)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PathToMileStonePhoto)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UserId)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.MilestoneReward)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MilestonePointsRequired)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Accomplished)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PathToMileStonePhoto)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UserId)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.MilestoneId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.MilestoneId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.MilestoneId })
+        </td>
+    </tr>
+}
+
+</table>
