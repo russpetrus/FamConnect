@@ -1,0 +1,58 @@
+﻿@model FamConnect.Models.ConnectionAction
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>ConnectionAction</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.FamilyMember.FirstName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FamilyMember.FirstName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ConnectionActionDescription)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ConnectionActionDescription)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PointsEarned)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PointsEarned)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ConnectionActionDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ConnectionActionDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UserId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UserId)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ConnectionActionId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

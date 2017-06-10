@@ -40,5 +40,7 @@ namespace FamConnect.Models
         public System.Data.Entity.DbSet<FamConnect.Models.FamilyMember> FamilyMembers { get; set; }
 
         public System.Data.Entity.DbSet<FamConnect.Models.Milestone> Milestones { get; set; }
+
+        public System.Data.Entity.DbSet<FamConnect.Models.ConnectionAction> ConnectionActions { get; set; }
     }
 }
