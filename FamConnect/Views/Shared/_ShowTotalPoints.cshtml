@@ -1,0 +1,14 @@
+﻿@model FamConnect.Models.ConnectionAction
+
+@*If there are no points then pass "None" to the view, else display the number of points.*@
+
+@if (ViewBag.TotalPoints == null)
+{
+    <text>None </text>
+}
+else
+{
+
+    @ViewBag.TotalPoints
+
+}

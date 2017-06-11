@@ -25,6 +25,22 @@ namespace FamConnect.Controllers
             return View(milestones.ToList());
         }
 
+        // GET: Milestones Point Goal and Reward
+        public ActionResult GetMilestoneValue()
+        {
+            var currentUser = User.Identity.GetUserId();
+            var milestones = from Milestone in db.Milestones
+                             where Milestone.UserId == currentUser
+                             select Milestone;
+            var Goal = milestones.OrderByDescending(p => p.MilestoneId).First().MilestonePointsRequired;
+            var Reward = milestones.OrderByDescending(p => p.MilestoneId).First().MilestoneReward;
+            ViewBag.MilestoneGoal = Goal;
+            ViewBag.MilestoneReward = Reward;
+            return PartialView("_ShowMileStone");
+
+
+        }
+
         // GET: Milestones/Details/5
         public ActionResult Details(int? id)
         {

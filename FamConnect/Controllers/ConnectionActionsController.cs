@@ -29,6 +29,30 @@ namespace FamConnect.Controllers
             //return View(connectionActions.ToList());
         }
 
+        //Method for partial view to add all connection points and pass the result to the partial view via ViewBag
+        [ChildActionOnly]
+        public ActionResult GetPoints()
+        {
+
+            var getUser = User.Identity.GetUserId();
+            var allPoints = from ConnectionAction in db.ConnectionActions
+                            where ConnectionAction.UserId == getUser
+                            select ConnectionAction.PointsEarned;
+            //first check if connection records exist in the database
+            if (!allPoints.Any())
+            {
+                return PartialView("_ShowTotalPoints");
+            }
+            else
+            {
+                ViewBag.TotalPoints = allPoints.Sum();
+                return PartialView("_ShowTotalPoints");
+            }
+
+
+        }
+
+
         // GET: ConnectionActions/Details/5
         public ActionResult Details(int? id)
         {

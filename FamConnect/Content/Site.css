@@ -22,3 +22,66 @@ select,
 textarea {
     max-width: 280px;
 }
+
+/* Dashboard styles */
+
+/*Dashboard left side col*/
+.dashSideNav {
+    float: left;
+    display: block;
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+
+.nextReward {
+    background-color: #b2579d;
+    padding: 16px 4px 4px 4px;
+    height: 284px;
+    color: #fff;
+}
+
+    .nextReward .glyphicon {
+        font-size: 3.5em;
+    }
+
+    .nextReward .progress {
+        height: 54px;
+        width: 90%;
+        margin-left: auto;
+        margin-right: auto;
+        background-color: #743967;
+    }
+
+        .nextReward .progress .progress-bar h2 {
+            margin-top: 12px;
+        }
+
+.progress {
+    margin-top: 14px;
+}
+
+/*Dashboard right side col with family picture*/
+.familyPictureFrame {
+    float: right;
+    display: block;
+    background-color: #d7f1fe;
+    height: 420px;
+    padding-left: 0px;
+    padding-right: 0px;
+    background-image: url("Images/WCC_MD4_7400.jpg");
+    background-size: cover;
+    background-position: top;
+}
+
+.familyContent {
+    padding: 0px;
+    color: #fff;
+}
+
+    .familyContent h1 {
+        background-color: rgba(50,50,50,.7);
+        padding: 8px;
+        margin: 0px;
+        text-align: center;
+    }
