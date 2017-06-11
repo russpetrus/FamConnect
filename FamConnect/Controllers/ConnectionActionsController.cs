@@ -47,7 +47,13 @@ namespace FamConnect.Controllers
         // GET: ConnectionActions/Create
         public ActionResult Create()
         {
-            ViewBag.FamilyMemberId = new SelectList(db.FamilyMembers, "FamilyMemberId", "FirstName");
+            var currentFamily = User.Identity.GetUserId();
+            var CurrentFamilyMembers = from FamilyMember in db.FamilyMembers
+                                              where FamilyMember.UserId == currentFamily
+                                              select FamilyMember;
+
+            //ViewBag.FamilyMemberId = new SelectList(db.FamilyMembers, "FamilyMemberId", "FirstName");
+            ViewBag.FamilyMemberId = new SelectList(CurrentFamilyMembers, "FamilyMemberId", "FirstName");
             return View();
         }
 
