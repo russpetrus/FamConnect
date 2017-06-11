@@ -22,6 +22,7 @@ namespace FamConnect.Controllers
             var connections = from ConnectionAction in db.ConnectionActions
                               where ConnectionAction.UserId == currentUser
                               select ConnectionAction;
+           
             return View(connections.ToList());
 
             //var connectionActions = db.ConnectionActions.Include(c => c.FamilyMember);
