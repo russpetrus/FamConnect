@@ -85,3 +85,7 @@ textarea {
         margin: 0px;
         text-align: center;
     }
+
+    .smallProfileImg{
+        height:40px;
+    }

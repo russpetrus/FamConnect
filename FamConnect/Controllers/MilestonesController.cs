@@ -26,7 +26,7 @@ namespace FamConnect.Controllers
         }
 
         // GET: Milestones Point Goal and Reward
-        public ActionResult GetMilestoneValue()
+        public ActionResult GetMilestoneValue(string mVal)
         {
             var currentUser = User.Identity.GetUserId();
             var milestones = from Milestone in db.Milestones
@@ -34,9 +34,20 @@ namespace FamConnect.Controllers
                              select Milestone;
             var Goal = milestones.OrderByDescending(p => p.MilestoneId).First().MilestonePointsRequired;
             var Reward = milestones.OrderByDescending(p => p.MilestoneId).First().MilestoneReward;
-            ViewBag.MilestoneGoal = Goal;
-            ViewBag.MilestoneReward = Reward;
-            return PartialView("_ShowMileStone");
+            if (mVal == "goal")
+            {
+                ViewBag.MilestoneGoal = Goal;
+                return PartialView("_ShowMileStone");
+            }else if(mVal == "reward")
+            {
+                ViewBag.MilestoneReward = Reward;
+                return PartialView("_ShowMileStone");
+            }else
+            {
+                return PartialView("_ShowMileStone");
+            }
+
+
 
 
         }
