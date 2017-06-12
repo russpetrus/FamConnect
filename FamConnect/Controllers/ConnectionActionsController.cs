@@ -47,6 +47,8 @@ namespace FamConnect.Controllers
         // GET: ConnectionActions/Create
         public ActionResult Create()
         {
+
+            //added code to filter the dropdown/SelectList so only current user family members so
             var currentFamily = User.Identity.GetUserId();
             var CurrentFamilyMembers = from FamilyMember in db.FamilyMembers
                                               where FamilyMember.UserId == currentFamily
