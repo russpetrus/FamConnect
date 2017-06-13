@@ -335,7 +335,8 @@
     <Content Include="Views\ConnectionActions\Edit.cshtml" />
     <Content Include="Views\ConnectionActions\Index.cshtml" />
     <Content Include="Views\Shared\_ShowTotalPoints.cshtml" />
-    <Content Include="Views\Shared\_ShowMileStone.cshtml" />
+    <Content Include="Views\Shared\_ShowMileStoneGoal.cshtml" />
+    <Content Include="Views\Shared\_ShowMileStoneValue.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

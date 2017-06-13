@@ -41,6 +41,7 @@ namespace FamConnect.Controllers
             //first check if connection records exist in the database
             if (!allPoints.Any())
             {
+                ViewBag.TotalPoints = 0;
                 return PartialView("_ShowTotalPoints");
             }
             else
