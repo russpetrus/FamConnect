@@ -65,6 +65,31 @@ namespace FamConnect.Controllers
             return View(milestone);
         }
 
+        //actions for creating the first milestone upon initial registration
+        public ActionResult InitialCreate()
+        {
+            return View();
+        }
+
+        // POST: Milestones/Create
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult InitialCreate([Bind(Include = "MilestoneId,MilestoneReward,MilestonePointsRequired,Accomplished,PathToMileStonePhoto,UserId")] Milestone milestone)
+        {
+            if (ModelState.IsValid)
+            {
+                milestone.UserId = User.Identity.GetUserId();
+                milestone.Accomplished = false;
+                db.Milestones.Add(milestone);
+                db.SaveChanges();
+                return RedirectToAction("Index", "Home");
+            }
+
+            return View(milestone);
+        }
+
         // GET: Milestones/Edit/5
         public ActionResult Edit(int? id)
         {

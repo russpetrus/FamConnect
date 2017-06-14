@@ -5,3 +5,31 @@
 }
 
 
+@foreach (var family in Model.Families)
+{
+    if (family.Id == Model.FamilyID)
+
+    {
+        <img src="@family.PathToFamilyPicture">
+    }
+}
+
+@foreach (var member in Model.FamilyMembers)
+{
+    if (member.UserId == Model.FamilyID)
+    {
+        <p>@member.FirstName</p>
+    }
+
+}
+
+@foreach (var action in Model.ConnectionActions)
+{
+    if (action.UserId == Model.FamilyID)
+    {
+        <p>@action.FamilyMember.FirstName</p>
+        <p>@action.ConnectionActionDescription</p>
+        <p>@action.PointsEarned</p>
+        <p>@action.ConnectionActionDate</p>
+    }
+} 

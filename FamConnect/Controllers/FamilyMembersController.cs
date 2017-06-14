@@ -9,6 +9,7 @@ using System.Web.Mvc;
 using FamConnect.Models;
 using Microsoft.AspNet.Identity;
 
+
 namespace FamConnect.Controllers
 {
     public class FamilyMembersController : Controller
@@ -25,6 +26,15 @@ namespace FamConnect.Controllers
             return View(familyMembers.ToList());
         }
 
+        //to render index as partial view for the InitialCreate view upon first registering
+        public ActionResult IndexCreateMembers()
+        {
+            var currentUser = User.Identity.GetUserId();
+            var familyMembers = from FamilyMember in db.FamilyMembers
+                                where FamilyMember.UserId == currentUser
+                                select FamilyMember;
+            return PartialView("_IndexCreateMembers",familyMembers);
+        }
         // GET: FamilyMembers/Details/5
         public ActionResult Details(int? id)
         {
@@ -44,6 +54,7 @@ namespace FamConnect.Controllers
         public ActionResult Create()
         {
             return View();
+            
         }
 
         // POST: FamilyMembers/Create
@@ -62,7 +73,32 @@ namespace FamConnect.Controllers
             }
 
             return View(familyMember);
+        
+         }
+
+        // Initial create action and view used upon first registering
+        public ActionResult InitialCreate()
+        {
+            return View();
+
         }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult InitialCreate([Bind(Include = "FamilyMemberId,FirstName,MemberDOB,PathToMemberPhoto,UserId")] FamilyMember familyMember)
+        {
+            if (ModelState.IsValid)
+            {
+                familyMember.UserId = User.Identity.GetUserId();
+                db.FamilyMembers.Add(familyMember);
+                db.SaveChanges();
+                return RedirectToAction("InitialCreate");
+            }
+
+            return View(familyMember);
+
+        }
+
 
         // GET: FamilyMembers/Edit/5
         public ActionResult Edit(int? id)
