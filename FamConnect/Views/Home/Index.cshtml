@@ -2,13 +2,63 @@
 
 @{
     ViewBag.Title = "Family Connect";
+    var familyImage = "";
+    var familyName = "";
+    var familyGoal = 0;
+    var familyTotal = 0;
 }
+
+@*Find the users family image and name in the db.*@
+@foreach (var family in Model.Families)
+{
+    if (family.Id == Model.FamilyID)
+
+    {
+        familyImage = family.PathToFamilyPicture;
+        familyName = family.FamilyName;
+    }
+}
+
+@foreach (var milestone in Model.Milestones)
+{
+    if (milestone.UserId == Model.FamilyID)
+    {
+        familyGoal = milestone.MilestonePointsRequired;
+    }
+
+}
+
+@foreach (var connection in Model.ConnectionActions)
+{
+    if (connection.UserId == Model.FamilyID)
+    {
+        familyTotal += connection.PointsEarned;
+    }   
+}
+
+@*Milstone reached alert*@
+@if (familyTotal == familyGoal)
+{
+    <div class="alert alert-success alert-dismissible fade in" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">×</span>
+        </button>
+        <h4>Congrats! Your family has achieved a milestone</h4>
+        <p>Take this time to celebrate or to create a new milestone.</p>
+        <p>
+            <a href="@Url.Action("Create", "Milestones")" class="btn btn-primary"><span class="glyphicon glyphicon-flag" aria-hidden="true"></span> Create Milestone</a>
+            <button type="button" data-dismiss="alert" class="btn btn-default">Maybe Later</button>
+        </p>
+    </div>
+
+}
+
 
 <div class="row">
 
-    <div class="col-xs-12 col-sm-12 col-md-9 col-lg-9 familyPictureFrame">
+    <div class="col-xs-12 col-sm-12 col-md-9 col-lg-9 familyPictureFrame" style="background-image:url(@familyImage)">
         <div class="familyContent">
-            <h1>Family Name</h1>
+            <h1>@familyName @familyGoal @familyTotal</h1>
         </div>
     </div>
     <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 dashSideNav">
@@ -56,4 +106,3 @@
         }
     </tbody>
 </table>
-
