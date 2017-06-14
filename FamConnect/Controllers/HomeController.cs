@@ -24,7 +24,6 @@ namespace FamConnect.Controllers
             family.FamilyMembers = db.FamilyMembers.ToList();
             family.Milestones = db.Milestones.ToList();
             family.ConnectionActions = db.ConnectionActions.ToList();
-
             family.Families = db.Users;
             return View(family);
         }

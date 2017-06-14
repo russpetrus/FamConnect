@@ -25,50 +25,6 @@ namespace FamConnect.Controllers
             return View(milestones.ToList());
         }
 
-
-        // GET: Milestones Points Required
-        public ActionResult GetMilestoneValue()
-        {
-            var currentUser = User.Identity.GetUserId();
-            var milestones = from Milestone in db.Milestones
-                             where Milestone.UserId == currentUser
-                             select Milestone.MilestonePointsRequired;
-            if (milestones.Any())
-            {
-                var goal = milestones.ToList().Last();
-                ViewBag.MilestoneGoal = goal;
-                return PartialView("_ShowMileStoneValue");
-            }
-            else
-            {
-                ViewBag.MilestoneGoal = 0;
-                return PartialView("_ShowMileStoneValue");
-            }
-
-        }
-
-        // GET: Milestones Reward
-        public ActionResult GetMilestoneReward()
-        {
-            var currentUser = User.Identity.GetUserId();
-            var milestones = from Milestone in db.Milestones
-                             where Milestone.UserId == currentUser
-                             select Milestone.MilestoneReward;
-            if (milestones.Any())
-            {
-                var goal = milestones.ToList().Last();
-                ViewBag.MilestoneReward = goal;
-                return PartialView("_ShowMileStoneGoal");
-            }
-            else
-            {
-                ViewBag.MilestoneReward = "No Milestone set";
-                return PartialView("_ShowMileStoneGoal");
-            }
-
-        }
-
-
         // GET: Milestones/Details/5
         public ActionResult Details(int? id)
         {
@@ -81,6 +37,31 @@ namespace FamConnect.Controllers
             {
                 return HttpNotFound();
             }
+            return View(milestone);
+        }
+
+        // GET: Milestones/Create
+        public ActionResult Create()
+        {
+            return View();
+        }
+
+        // POST: Milestones/Create
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Create([Bind(Include = "MilestoneId,MilestoneReward,MilestonePointsRequired,Accomplished,PathToMileStonePhoto,UserId")] Milestone milestone)
+        {
+            if (ModelState.IsValid)
+            {
+                milestone.UserId = User.Identity.GetUserId();
+                milestone.Accomplished = false;
+                db.Milestones.Add(milestone);
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+
             return View(milestone);
         }
 
@@ -104,32 +85,6 @@ namespace FamConnect.Controllers
                 db.Milestones.Add(milestone);
                 db.SaveChanges();
                 return RedirectToAction("Index", "Home");
-            }
-
-            return View(milestone);
-        }
-
-
-        // GET: Milestones/Create
-        public ActionResult Create()
-        {
-            return View();
-        }
-
-        // POST: Milestones/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "MilestoneId,MilestoneReward,MilestonePointsRequired,Accomplished,PathToMileStonePhoto,UserId")] Milestone milestone)
-        {
-            if (ModelState.IsValid)
-            {
-                milestone.UserId = User.Identity.GetUserId();
-                milestone.Accomplished = false;
-                db.Milestones.Add(milestone);
-                db.SaveChanges();
-                return RedirectToAction("Index");
             }
 
             return View(milestone);

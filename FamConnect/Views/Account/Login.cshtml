@@ -12,6 +12,7 @@
             {
                 @Html.AntiForgeryToken()
                 <h4>Already a member? Sign in.</h4>
+                 <p>or</p><input type="button" class="btn btn-default" value="Create an Account" onclick="location.href='@Url.Action("Register", "Account")'" />
                 <hr />
                 @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                 <div class="form-group">
