@@ -6,6 +6,7 @@
     var familyName = "";
     var familyGoal = 0;
     var familyTotal = 0;
+    decimal familyTotalProgress = 0;
 }
 
 @*Find the users family image and name in the db.*@
@@ -34,6 +35,11 @@
     {
         familyTotal += connection.PointsEarned;
     }
+}
+
+@*Convert total family points to decimal to use as percentage of overall milestone goal.*@
+@{ 
+    familyTotalProgress = Convert.ToDecimal(familyTotal) / familyGoal * 100 ;
 }
 
 @*Milstone reached alert*@
@@ -67,7 +73,7 @@
             <h4>@{Html.RenderAction("GetMilestoneReward", "Milestones");}</h4>
 
             <div class="progress">
-                <div class="progress-bar" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="@familyGoal" style="min-width: 2em; width:@familyTotal%;">
+                <div class="progress-bar" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="@familyGoal" style="min-width: 2em; width:@familyTotalProgress%;">
                     <h2>@familyTotal<text>&nbsp;</text>/<text>&nbsp;</text>@{Html.RenderAction("GetMilestoneValue", "Milestones");}</h2>
                 </div>
             </div>
@@ -91,13 +97,13 @@
         </tr>
     </thead>
     <tbody>
-        @foreach (var action in Model.ConnectionActions)
+        @foreach (var action in Model.ConnectionActions.Take(5))
         {
             if (action.UserId == Model.FamilyID)
             {
                 <tr>
                     <td>@action.ConnectionActionDescription</td>
-                    <td><img class="img-circle smallProfileImg" src="@action.FamilyMember.PathToMemberPhoto" alt="@action.FamilyMember.FirstName" /> @action.FamilyMember.FirstName</td>
+                    <td><a href="@Url.Action("Details", "FamilyMembers", new { id = action.FamilyMember.FamilyMemberId })"><img class="img-circle smallProfileImg" src="@action.FamilyMember.PathToMemberPhoto" alt="@action.FamilyMember.FirstName" /></a> @action.FamilyMember.FirstName</td>
                     <td>@action.PointsEarned</td>
                     <td>@action.ConnectionActionDate</td>
                 </tr>
