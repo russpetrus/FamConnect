@@ -38,14 +38,14 @@
 }
 
 @*Convert total family points to decimal to use as percentage of overall milestone goal.*@
-@{ 
-    familyTotalProgress = Convert.ToDecimal(familyTotal) / familyGoal * 100 ;
+@{
+    familyTotalProgress = Convert.ToDecimal(familyTotal) / familyGoal * 100;
 }
 
 @*Milstone reached alert*@
 @if (familyTotal == familyGoal)
 {
-    <div class="alert alert-success alert-dismissible fade in" role="alert">
+    <div class="alert alert-info alert-dismissible fade in" role="alert">
         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
             <span aria-hidden="true">×</span>
         </button>
@@ -81,34 +81,46 @@
         </div>
         <div class="btn-group-vertical btn-group-lg btn-block" role="group" aria-label="...">
             <a href="@Url.Action("Create", "ConnectionActions")" class="btn btn-primary"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span> Log Connection</a>
-            <a href="@Url.Action("Index", "FamilyMembers")" class="btn btn-primary"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Manage Family</a>
+            <a href="@Url.Action("Index", "FamilyMembers")" class="btn btn-primary"><span class="fa fa-users" aria-hidden="true"></span> Manage Family</a>
             <a href="@Url.Action("Create", "Milestones")" class="btn btn-primary"><span class="glyphicon glyphicon-flag" aria-hidden="true"></span> Create Milestone</a>
         </div>
     </div>
 </div>
 
-<table class="table-striped table table-hover">
-    <thead>
-        <tr>
-            <th>Connection</th>
-            <th>Member</th>
-            <th>Points Earned</th>
-            <th>Date</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var action in Model.ConnectionActions.Take(5))
-        {
-            if (action.UserId == Model.FamilyID)
-            {
-                <tr>
-                    <td>@action.ConnectionActionDescription</td>
-                    <td><a href="@Url.Action("Details", "FamilyMembers", new { id = action.FamilyMember.FamilyMemberId })"><img class="img-circle smallProfileImg" src="@action.FamilyMember.PathToMemberPhoto" alt="@action.FamilyMember.FirstName" /></a> @action.FamilyMember.FirstName</td>
-                    <td>@action.PointsEarned</td>
-                    <td>@action.ConnectionActionDate</td>
-                </tr>
-            }
-        }
-    </tbody>
-</table>
+<div class="row">
+    <div class="panel panel-primary">
+        <div class="panel-heading"><h4>Recent Connections</h4></div>
+        <div class="panel-body">
+            <table class="table-striped table table-hover">
+                <thead>
+                    <tr>
+                        <th>Connection</th>
+                        <th>Member</th>
+                        <th>Points Earned</th>
+                        <th>Date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var action in Model.ConnectionActions.Take(5))
+                    {
+                        if (action.UserId == Model.FamilyID)
+                        {
+
+                            <tr>
+                                <td><a href="@Url.Action("Details", "ConnectionActions", new { id = action.ConnectionActionId })">@action.ConnectionActionDescription</a></td>
+                                <td><a href="@Url.Action("Details", "FamilyMembers", new { id = action.FamilyMember.FamilyMemberId })"><img class="img-circle smallProfileImg" src="@action.FamilyMember.PathToMemberPhoto" alt="@action.FamilyMember.FirstName" /></a> @action.FamilyMember.FirstName</td>
+                                <td>@action.PointsEarned</td>
+                                <td>@action.ConnectionActionDate</td>
+                            </tr>
+
+                        }
+                    }
+                </tbody>
+            </table>
+        </div>
+        <div class="panel-footer text-left">
+            <a href="@Url.Action("Index", "ConnectionActions")" class="btn btn-primary btn-sm"> View All</a>
+        </div>
+    </div>
+</div>
 

@@ -33,7 +33,15 @@ textarea {
     padding-right: 0px;
 }
 
+.btn-group-vertical > .btn:first-child:not(:last-child) {
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+}
 
+
+.btn-group-vertical > .btn:last-child:not(:first-child) {
+    border-bottom-right-radius:0px;
+}
 .nextReward {
     background-color: #b2579d;
     padding: 16px 4px 4px 4px;
@@ -60,7 +68,11 @@ textarea {
 .progress {
     margin-top: 14px;
 }
-
+.alert{
+    z-index:45;
+    position:absolute;
+    margin:80px auto 0px auto;
+}
 /*Dashboard right side col with family picture*/
 .familyPictureFrame {
     float: right;
@@ -86,7 +98,25 @@ textarea {
         text-align: center;
     }
 
+    /*Connection table styles*/
 .smallProfileImg {
     height: 40px;
+}
+
+.panel {
+    margin-top: 5px;
+}
+
+.panel-body {
+    padding: 15px 0px 0px 0px;
+}
+
+a:hover, a:focus{
+    text-decoration:none;
+}
+
+.panel-heading h4{
+    margin-top:2px;
+    margin-bottom:2px;
 }
 
