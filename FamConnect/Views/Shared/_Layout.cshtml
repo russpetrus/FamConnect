@@ -6,6 +6,10 @@
     <title>@ViewBag.Title - My ASP.NET Application</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
+
+    <!--ModalCSS-->
+    <link rel="stylesheet" type="text/css" href="~/Content/Modal.css">
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
@@ -27,7 +31,13 @@
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>
+
+
+            <!--modal button-->
+            <a href="#myModal" role="button" class="btn btn-warning"
+               data-toggle="modal"><span class="glyphicon glyphicon-hand-up"></span>Let's Get Started</a>
         </div>
+
     </div>
     <div class="container body-content">
         @RenderBody()
@@ -40,5 +50,77 @@
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
+
+
+    <!--model window-->
+    <!--another way to change the size of modal is "modal-dialog-sm or modal-dialog-lg"-->
+
+    <div class="modal fade" id="myModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button class="close" data-dismiss="modal">&times;</button>
+
+                    <!--Header number1-->
+                    <!--  <h4 class="modal-title"></h4>-->
+                    <center><img src="~/Content/images/familyconnectlogo.png" height="90" /></center>
+                </div>
+                <div class="modal-body">
+
+
+                    <h1>STEP 1</h1>
+                    <h1 class="createF">Create a Family</h1>
+
+                    <div class="row">
+                        <div class="col-md-6 picture-item col-centered">
+                            <a href="http://placehold.it/750x450">
+                                <center><img class="img-responsive" src="http://placehold.it/750x450" alt=""></center>
+                                <br />
+                            </a>
+                        </div>
+                        <!--  <div class="container1">
+                        <!--images of each Create form are in the img src-->
+                        <!-- <center>  <img src="~/Content/images/ConnectionAction.JPG"> </center>
+                        <br />-->
+                    </div>
+
+
+                    <!--Header number2-->
+
+                    <h1>STEP 2</h1>
+                    <h1 class="createM">create a milestone</h1>
+                    <div class="row">
+                        <div class="col-md-6 picture-item col-centered">
+                            <a href="http://placehold.it/750x450">
+                                <center><img class="img-responsive" src="http://placehold.it/750x450" alt=""></center>
+                                <br />
+                            </a>
+                        </div>
+
+                        <!---<div class="container1">
+                        <center>  <img src="~/Content/images/FamilyMembers.JPG" /> </center>
+                        <br />-->
+                    </div>
+
+
+
+                    <!--Header number3-->
+                    <h1>STEP 3</h1>
+                    <h1 class="createA">Create an action connection</h1>
+                    <div class="row">
+                        <div class="col-md-6 picture-item col-centered">
+                            <a href="http://placehold.it/750x450">
+                                <center><img class="img-responsive" src="http://placehold.it/750x450" alt=""></center>
+                                <br />
+                            </a>
+                        </div>
+                        <!-- <div class="container1">
+                        <center> <img src="~/Content/images/MileStone.JPG" /> </center>
+                        <br />-->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 </html>

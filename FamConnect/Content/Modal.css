@@ -1,0 +1,37 @@
+﻿body {
+
+/* div .container1 {
+            margin-bottom: 20px;
+            /* width: 979px;*/
+        } 
+
+        .modal .modal-dialog .modal-content {
+            /*Options for editing the model window*/
+            background-image: url('../../Content/images/Cartoon-Happy-Family.jpg');
+            background-color: #fbe63e;
+            background-repeat: no-repeat;
+            background-size: contain;
+            background-position: right;
+        }
+
+        .modal-dialog {
+            width: 70%;
+        }
+
+        .modal-body {
+            max-height: 600vh;
+        }
+
+        h1 {
+            text-align: center;
+        }
+        .col-centered{
+            float: none;
+            margin: 0 auto;
+            }
+        .img-responsive{
+            box-shadow: 10px 10px 10px grey;
+        }
+
+
+
