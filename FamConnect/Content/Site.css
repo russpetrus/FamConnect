@@ -40,8 +40,9 @@ textarea {
 
 
 .btn-group-vertical > .btn:last-child:not(:first-child) {
-    border-bottom-right-radius:0px;
+    border-bottom-right-radius: 0px;
 }
+
 .nextReward {
     background-color: #b2579d;
     padding: 16px 4px 4px 4px;
@@ -68,10 +69,11 @@ textarea {
 .progress {
     margin-top: 14px;
 }
-.alert{
-    z-index:45;
-    position:absolute;
-    margin:80px auto 0px auto;
+
+.alert {
+    z-index: 45;
+    position: absolute;
+    margin: 80px auto 0px auto;
 }
 /*Dashboard right side col with family picture*/
 .familyPictureFrame {
@@ -98,7 +100,7 @@ textarea {
         text-align: center;
     }
 
-    /*Connection table styles*/
+/*Connection table styles*/
 .smallProfileImg {
     height: 40px;
 }
@@ -111,12 +113,39 @@ textarea {
     padding: 15px 0px 0px 0px;
 }
 
-a:hover, a:focus{
-    text-decoration:none;
+a:hover, a:focus {
+    text-decoration: none;
 }
 
-.panel-heading h4{
-    margin-top:2px;
-    margin-bottom:2px;
+.panel-heading h4 {
+    margin-top: 2px;
+    margin-bottom: 2px;
+    margin-right: 20px;
 }
 
+
+/* Family member cards*/
+
+.memberCard {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    border-radius: 5px; /* 5px rounded corners */
+    width:200px;
+    height:340px;
+    float:left;
+    display:block;
+    margin:10px 5px 10px 5px;
+    padding-right:0px;
+    padding-left:0px;
+    
+}
+
+/* Add rounded corners to the top left and the top right corner of the image */
+.memberCard img {
+    border-radius: 5px 5px 0 0;
+
+}
+
+.memberCard .container {
+    padding: 2px 16px;
+}
