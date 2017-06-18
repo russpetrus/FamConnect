@@ -19,7 +19,7 @@
         familyName = family.FamilyName;
     }
 }
-
+@*Get Milestones*@
 @foreach (var milestone in Model.Milestones)
 {
     if (milestone.UserId == Model.FamilyID)
@@ -28,7 +28,7 @@
     }
 
 }
-
+@*Get Connections*@
 @foreach (var connection in Model.ConnectionActions)
 {
     if (connection.UserId == Model.FamilyID)
@@ -55,9 +55,9 @@
             <a href="@Url.Action("Create", "Milestones")" class="btn btn-primary"><span class="glyphicon glyphicon-flag" aria-hidden="true"></span> Create Milestone</a>
             <button type="button" data-dismiss="alert" class="btn btn-default">Maybe Later</button>
         </p>
+
     </div>
 }
-
 <div class="row">
 
     <div class="col-xs-12 col-sm-12 col-md-9 col-lg-9 familyPictureFrame" style="background-image:url(@familyImage)">
@@ -101,7 +101,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach (var action in Model.ConnectionActions.Take(5))
+                    @foreach (var action in Model.ConnectionActions)
                     {
                         if (action.UserId == Model.FamilyID)
                         {
@@ -112,7 +112,6 @@
                                 <td>@action.PointsEarned</td>
                                 <td>@action.ConnectionActionDate</td>
                             </tr>
-
                         }
                     }
                 </tbody>

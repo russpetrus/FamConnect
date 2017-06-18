@@ -17,7 +17,7 @@
             <img src="@Html.DisplayFor(modelItem => item.PathToMemberPhoto)" alt="Avatar" style="width:100%">
             <div class="container">
                 <h4><b>@Html.DisplayFor(modelItem => item.FirstName)</b></h4>
-                <p>@Html.DisplayFor(modelItem => item.MemberDOB)</p>
+                <p>Birthday: @Html.DisplayFor(modelItem => item.MemberDOB)</p>
                 
                 <a href="@Url.Action("Edit", "FamilyMembers", new { id = item.FamilyMemberId })" class="btn btn-primary btn-sm"> <span class="glyphicon glyphicon-pencil"></span></a>
                 <a href="@Url.Action("Delete", "FamilyMembers", new { id = item.FamilyMemberId })" class="btn btn-danger btn-sm"> <span class="glyphicon glyphicon-trash"></span></a>
