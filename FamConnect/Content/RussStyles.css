@@ -1,0 +1,38 @@
+﻿body {
+}
+
+.step-container{
+    padding:10px;
+    text-align:center;
+    color:white;
+
+}
+
+.blueText{
+    color:#489FDF;
+}
+
+.blue {
+    background-color:#489FDF;
+}
+
+.createFormWrapper{
+    text-align:center;
+   margin-top:10vh;
+}
+
+.centerButton{
+    display:block;
+    width:auto;
+    margin: 0 auto;
+}
+
+input[type="date"]:before {
+    content: attr(placeholder) !important;
+    color: #aaa;
+    margin-right: 0.5em;
+  }
+  input[type="date"]:focus:before,
+  input[type="date"]:valid:before {
+    content: "";
+  }
