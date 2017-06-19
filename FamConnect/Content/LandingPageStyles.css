@@ -1,0 +1,89 @@
+﻿body {
+}
+
+.gorditas{
+    font-family:'Gorditas', cursive;
+    font-weight:normal;
+}
+
+.centered {
+    display: block;
+    width: auto;
+    margin: 0 auto;
+}
+
+#LandingPageHero {
+    padding: 30px 30px 50px 30px;
+    color: white;
+    width: 100%;
+    height: auto;
+    background-image: -webkit-linear-gradient(270deg, rgba(82, 147, 204, .5), rgba(82, 147, 204, .5)), url('Images/hands-1950985_1920.jpg');
+    background-image: linear-gradient(180deg, rgba(82, 147, 204, .5), rgba(82, 147, 204, .5)), url('Images/hands-1950985_1920.jpg');
+    background-position: 0px 0px, 50% 50%;
+    background-size: auto, cover;
+    background-repeat: repeat, no-repeat;
+    background-attachment: scroll, fixed;
+}
+
+#RegisterFormWrapper{
+    
+    background-color:white;
+    color: #fc951e;
+    padding:25px;
+    text-align:center;
+    border-radius:8px;
+    border:2px solid #fc951e;
+}
+
+.RegisterForm{
+    display:block;
+    margin: 0 auto;
+    padding:20px;
+    font-size:16px;
+    width:80%
+}
+
+#LandingColumns{
+    color:white;
+    padding:0px;
+   
+}
+
+.row.no-gutter{
+    margin-left:0px;
+    margin-right:0px;
+    margin-bottom:0px;
+    margin-top:0px;
+}
+    .row.no-gutter > [class*='col-'] {
+        padding-right: 0;
+        padding-left: 0;
+    }
+
+#Milestone{
+    background-color:#ba30ff;
+    padding:20px;
+    height:50vh;
+
+    }
+
+#SetupFamily{
+    background-color:#fc951e;
+    padding:20px;
+    height:50vh;
+
+}
+
+#ConnectionActions{
+    background-color:#6fce34;
+    padding:20px;
+    height:50vh;
+}
+
+#Reward{
+    background-color: #ff5496;
+    padding: 20px;
+    height:50vh;
+}
+
+
