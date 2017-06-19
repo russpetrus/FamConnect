@@ -8,10 +8,11 @@
         <div class="col-md-7 text-center">
             <h1 class="gorditas">Family Connect</h1>
             <h2 class="text-capitalize">The Fun and Easy Way to Promote Family Unity</h2>
+            @Html.ActionLink("Current User Login", "Login", "Account", null, new { @class = "btn btn-default" })
         </div>
 
         <div class="col-md-5 center-block">
-            <div id="RegisterFormWrapper">
+            <div class="account-form-wrapper">
                 <h2 class="gorditas">Start Connecting Today</h2>
                 @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
             {
@@ -22,7 +23,7 @@
                         <div class="col-md-12">
                             @Html.TextBoxFor(m => m.Email, new
                        {
-                           @class = "form-control RegisterForm",
+                           @class = "form-control account-form-input",
                            placeholder = HttpUtility.HtmlDecode("&#xf0e0; Email Address"),
                            style = "font-family:Arial, FontAwesome"
                        })
@@ -33,7 +34,7 @@
                         <div class="col-md-12">
                             @Html.PasswordFor(m => m.Password, new
                        {
-                           @class = "form-control RegisterForm",
+                           @class = "form-control account-form-input",
                            placeholder = HttpUtility.HtmlDecode("&#xf023; Password"),
                            style = "font-family:Arial, FontAwesome"
                        })
@@ -44,7 +45,7 @@
                         <div class="col-md-12">
                             @Html.PasswordFor(m => m.ConfirmPassword, new
                        {
-                           @class = "form-control RegisterForm",
+                           @class = "form-control account-form-input",
                            placeholder = HttpUtility.HtmlDecode("&#xf00c; Confirm Password"),
                            style = "font-family:Arial, FontAwesome"
                        })
@@ -57,7 +58,7 @@
                         <div class="col-md-12">
                             @Html.TextBoxFor(m => m.FamilyName, new
                        {
-                           @class = "form-control RegisterForm",
+                           @class = "form-control account-form-input",
                            placeholder = HttpUtility.HtmlDecode("&#xf0c0; Family Name"),
                            style = "font-family:Arial, FontAwesome"
                        })
@@ -69,7 +70,7 @@
                         <div class="col-md-12">
                             @Html.TextBoxFor(m => m.PathToFamilyPicture, new
                        {
-                           @class = "form-control RegisterForm",
+                           @class = "form-control account-form-input",
                            placeholder = HttpUtility.HtmlDecode("&#xf03e; Family Photo"),
                            style = "font-family:Arial, FontAwesome"
                        })

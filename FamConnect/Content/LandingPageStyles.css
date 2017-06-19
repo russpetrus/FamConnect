@@ -25,7 +25,7 @@
     background-attachment: scroll, fixed;
 }
 
-#RegisterFormWrapper{
+.account-form-wrapper{
     
     background-color:white;
     color: #fc951e;
@@ -35,7 +35,7 @@
     border:2px solid #fc951e;
 }
 
-.RegisterForm{
+.account-form-input{
     display:block;
     margin: 0 auto;
     padding:20px;
@@ -87,3 +87,6 @@
 }
 
 
+#loginForm{
+    margin-top:10vh;
+}
