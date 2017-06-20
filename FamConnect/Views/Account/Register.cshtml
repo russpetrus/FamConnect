@@ -5,10 +5,11 @@
 
 <div class="container-fluid" id="LandingPageHero">
     <div class="row">
-        <div class="col-md-7 text-center">
+        <div class="col-md-7 center-block text-center">
+            <img class="landing-logo" src="~/Content/Images/FamilyConnectLogoHeart.png" />
             <h1 class="gorditas">Family Connect</h1>
             <h2 class="text-capitalize">The Fun and Easy Way to Promote Family Unity</h2>
-            @Html.ActionLink("Current User Login", "Login", "Account", null, new { @class = "btn btn-default" })
+            @Html.ActionLink("Current User Login", "Login", "Account", null, new { @class = "btn btn-default landing-login" })
         </div>
 
         <div class="col-md-5 center-block">

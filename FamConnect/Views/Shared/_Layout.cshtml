@@ -19,7 +19,10 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("Family Connect", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                <a href='@Url.Action("Index", "Home")'>
+                    <img src='@Url.Content("~/Content/Images/familyconnectlogohorizontalallwhite.png")' class="navbar-brand" />
+                </a>
+                @*@Html.ActionLink("Family Connect", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })*@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
