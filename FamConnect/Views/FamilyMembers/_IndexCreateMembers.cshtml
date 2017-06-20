@@ -1,42 +1,49 @@
 ﻿@model IEnumerable<FamConnect.Models.FamilyMember>
+<div class="panel panel-primary">
+    <div class="panel-heading"></div>
+    <div class="panel-body">
+        <table class="table table-striped table table-hover">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.FirstName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.MemberDOB)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.PathToMemberPhoto)
+                </th>
+                @*<th>
+                        @Html.DisplayNameFor(model => model.UserId)
+                    </th>*@
+                <th></th>
+            </tr>
 
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.FirstName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.MemberDOB)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.PathToMemberPhoto)
-        </th>
-        @*<th>
-            @Html.DisplayNameFor(model => model.UserId)
-        </th>*@
-        <th></th>
-    </tr>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.FirstName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.MemberDOB)
+                    </td>
+                    <td>
+                        <img class="img-circle smallProfileImg" src="@Html.DisplayFor(modelItem => item.PathToMemberPhoto)" />
+                    </td>
+                    @*<td>
+                            @Html.DisplayFor(modelItem => item.UserId)
+                        </td>*@
+                    @*<td>
+                            @Html.ActionLink("Edit", "Edit", new { id=item.FamilyMemberId }) |
+                            @Html.ActionLink("Details", "Details", new { id=item.FamilyMemberId }) |
+                            @Html.ActionLink("Delete", "Delete", new { id=item.FamilyMemberId })
+                        </td>*@
+                </tr>
+            }
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.FirstName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.MemberDOB)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.PathToMemberPhoto)
-        </td>
-        @*<td>
-            @Html.DisplayFor(modelItem => item.UserId)
-        </td>*@
-        @*<td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.FamilyMemberId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.FamilyMemberId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.FamilyMemberId })
-        </td>*@
-    </tr>
-}
-
-</table>
+        </table>
+    </div>
+    <div class="panel-footer text-left">
+    </div>
+</div>
