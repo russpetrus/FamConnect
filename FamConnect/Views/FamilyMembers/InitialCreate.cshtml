@@ -1,80 +1,93 @@
 ﻿@model FamConnect.Models.FamilyMember
 
 @{
-    ViewBag.Title = "InitialCreate";
+    ViewBag.Title = "Create Your Family";
 }
+<link href="~/content/firsttimecreateviews.css" rel="stylesheet" />
 
 
-
-
-<h2> Register Step Two: Create Your Family</h2>
-<div class="row">
-
-    <div class="col-md-5">
-        @using (Html.BeginForm())
-    {
-        @Html.AntiForgeryToken()
-
-        <div class="form-horizontal">
-            <h4>Use this form to add your family members.</h4>
-            <hr />
-            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-            <div class="form-group">
-                @Html.LabelFor(model => model.FirstName, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.FirstName, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.FirstName, "", new { @class = "text-danger" })
-                </div>
-            </div>
-
-            <div class="form-group">
-                @Html.LabelFor(model => model.MemberDOB, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.MemberDOB, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.MemberDOB, "", new { @class = "text-danger" })
-                </div>
-            </div>
-
-            <div class="form-group">
-                @Html.LabelFor(model => model.PathToMemberPhoto, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.PathToMemberPhoto, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.PathToMemberPhoto, "", new { @class = "text-danger" })
-                </div>
-            </div>
-
-            @*<div class="form-group">
-                    @Html.LabelFor(model => model.UserId, htmlAttributes: new { @class = "control-label col-md-2" })
-                    <div class="col-md-10">
-                        @Html.EditorFor(model => model.UserId, new { htmlAttributes = new { @class = "form-control" } })
-                        @Html.ValidationMessageFor(model => model.UserId, "", new { @class = "text-danger" })
+<div class="container-fluid createFormWrapper">
+    <div class="row">
+        <div class="col-md-12 text-center blueText">
+            <span class="fa-stack fa-4x">
+                <i class="fa fa-circle-thin fa-stack-2x"></i>
+                <i class="fa fa-group fa-stack-1x"></i>
+            </span>
+            <h2 class="gorditas">Create Your Family</h2>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6 text-center">
+            <h3 class="orangeText">Add A Family Member</h3>
+            <h5>Use the form below to add a family member, including yourself.</h5>
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+                <div class="form-horizontal">
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    <div class="form-group">
+                        <div class="col-md-12">
+                            @Html.EditorFor(model => model.FirstName, new
+                       {
+                           htmlAttributes = new
+                           {
+                               @class = "form-control create-form-input",
+                               placeholder = HttpUtility.HtmlDecode("&#xf007; First Name"),
+                               style = "font-family:Arial, FontAwesome"
+                           }
+                       })
+                            @Html.ValidationMessageFor(model => model.FirstName, "", new { @class = "text-danger" })
+                        </div>
                     </div>
-                </div>*@
-
-            <div class="form-group">
-                <div class="col-md-offset-2 col-md-10">
-                    <input type="submit" value="Add Family Member" class="btn btn-default" />
+                    <div class="form-group">
+                        <div class="col-md-12">
+                            @Html.EditorFor(model => model.MemberDOB, new
+                       {
+                           htmlAttributes = new
+                           {
+                               @class = "form-control create-form-input",
+                               placeholder = HttpUtility.HtmlDecode("&#xf073; Birthday"),
+                               style = "font-family:Arial, FontAwesome"
+                           }
+                       })
+                            @Html.ValidationMessageFor(model => model.MemberDOB, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-12">
+                            @Html.EditorFor(model => model.PathToMemberPhoto, new
+                       {
+                           htmlAttributes = new
+                           {
+                               @class = "form-control create-form-input",
+                               placeholder = HttpUtility.HtmlDecode("&#xf03e; Photo"),
+                               style = "font-family:Arial, FontAwesome"
+                           }
+                       })
+                            @Html.ValidationMessageFor(model => model.PathToMemberPhoto, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    @* UserId is set by controller *@
+                    <div class="form-group">
+                        <div class="col-md-12">
+                            <input type="submit" value="Add Family Member" class="btn btn-default centerButton" />
+                        </div>
+                    </div>
                 </div>
+            }
+        </div>
+        <div class="col-md-6 text-center">
+            <h3 class="orangeText">Your Family</h3>
+            <h5>As you add family members, they will appear below.</h5>
+            @Html.Action("IndexCreateMembers", "FamilyMembers")
+            <div class="col-md-12 text-center">
+                <h3 class="orangeText"> Finished Adding Family Members?</h3>
+                <h5>Next Step: Creating Your First Milestone</h5>
+                <input type="button" class="btn btn-default" value="Create Milestone" onclick="location.href='@Url.Action("InitialCreate", "Milestones")'" />
             </div>
         </div>
-    }
+    </div>
 </div>
-    <div class="col-md-7">
-        <h2>Your Family</h2>
-        <h4>As you add family members, they will appear below.</h4>
-    @Html.Action("IndexCreateMembers", "FamilyMembers")
-    </div>
-
-    </div>
-
-<br />
-
-    <h3> Finished Adding Family Members?</h3>
-    <h4>Move onto Step Three: Creating Your First Milestone</h4>
-    <input type="button" class="btn btn-default" value="Create Milestone" onclick="location.href='@Url.Action("InitialCreate", "Milestones")'" />
-
-
-
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")

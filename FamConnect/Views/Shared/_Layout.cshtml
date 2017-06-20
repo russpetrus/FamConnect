@@ -3,12 +3,13 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <title>@ViewBag.Title - Bringing Families Together</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/css?family=Gorditas|Raleway" rel="stylesheet">
-    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/LandingPageStyles.css" rel="stylesheet" />
+
 </head>
 <body>
     <div class="navbar navbar-inverse navbar-fixed-top">
@@ -19,10 +20,14 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("Family Connect", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                <a href='@Url.Action("Index", "Home")'>
+                    <img src='@Url.Content("~/Content/Images/familyconnectlogohorizontalallwhite.png")' class="navbar-brand" />
+                </a>
+                @*@Html.ActionLink("Family Connect", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })*@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("About", "About", "Home")</li>
                     <li>@Html.ActionLink("FamilyMembers", "Index", "FamilyMembers")</li>
                     <li>@Html.ActionLink("Milestones", "Index", "Milestones")</li>
                     <li>@Html.ActionLink("ConnectionActions", "Index", "ConnectionActions")</li>
@@ -35,7 +40,13 @@
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year - Family Connect Application</p>
+            <p>
+                &copy; @DateTime.Now.Year - Family Connect Application &nbsp;
+                @Html.ActionLink("About", "About", "Home") |
+                @Html.ActionLink("Family Members", "Index", "FamilyMembers") |
+                @Html.ActionLink("Milestones", "Index", "Milestones") |
+                @Html.ActionLink("Connection Actions", "Index", "ConnectionActions")
+            </p>
         </footer>
     </div>
 

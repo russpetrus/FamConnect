@@ -1,73 +1,62 @@
 ﻿@model FamConnect.Models.Milestone
 
 @{
-    ViewBag.Title = "InitialCreate";
+    ViewBag.Title = "Create Your First Milestone";
 }
 
-<h2>Step Three: Create Your Family's First Milestone</h2>
-
-
-@using (Html.BeginForm()) 
+<link href="~/content/firsttimecreateviews.css" rel="stylesheet" />
+<div class="container-fluid createFormWrapper">
+    <div class="row">
+        <div class="col-md-12 text-center blueText">
+            <span class="fa-stack fa-4x">
+                <i class="fa fa-circle-thin fa-stack-2x"></i>
+                <i class="fa fa-flag fa-stack-1x"></i>
+            </span>
+            <h2 class="gorditas blueText">Create Your First Milestone</h2>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-6">
+@using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
-        <h4>Use this form to create your first milestone</h4>
-        <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
-            @Html.LabelFor(model => model.MilestoneReward, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.MilestoneReward, new { htmlAttributes = new { @class = "form-control" } })
+            <div class="col-md-12">
+                @Html.EditorFor(model => model.MilestoneReward, new { htmlAttributes = new { @class = "form-control create-form-input",
+               placeholder = HttpUtility.HtmlDecode("&#xf091; Enter a Reward"),
+               style = "font-family:Arial, FontAwesome"
+           } })
                 @Html.ValidationMessageFor(model => model.MilestoneReward, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.MilestonePointsRequired, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.MilestonePointsRequired, new { htmlAttributes = new { @class = "form-control" } })
+            <div class="col-md-12">
+                @Html.EditorFor(model => model.MilestonePointsRequired, new { htmlAttributes = new { @class = "form-control create-form-input",
+               placeholder = HttpUtility.HtmlDecode("&#xf024; Points Required"),
+               style = "font-family:Arial, FontAwesome"
+           } })
                 @Html.ValidationMessageFor(model => model.MilestonePointsRequired, "", new { @class = "text-danger" })
             </div>
         </div>
-
-        @*<div class="form-group">
-            @Html.LabelFor(model => model.Accomplished, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                <div class="checkbox">
-                    @Html.EditorFor(model => model.Accomplished)
-                    @Html.ValidationMessageFor(model => model.Accomplished, "", new { @class = "text-danger" })
-                </div>
-            </div>
-        </div>*@
-
-        @*<div class="form-group">
-            @Html.LabelFor(model => model.PathToMileStonePhoto, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.PathToMileStonePhoto, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.PathToMileStonePhoto, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
         <div class="form-group">
-            @Html.LabelFor(model => model.UserId, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.UserId, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.UserId, "", new { @class = "text-danger" })
-            </div>
-        </div>*@
-
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create Milestone and Complete" class="btn btn-default" />
+            <div class="col-md-12 text-center">
+                <h4 class="orangeText">Click "Create Milestone" to Save and Go to Your Family Dashboard</h4>
+                <input type="submit" value="Create Milestone" class="btn btn-default centerButton" />
             </div>
         </div>
     </div>
 }
+        </div>
+        <div class="col-md-3"></div>
 
-@*<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>*@
+    </div>
+</div>
+
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")

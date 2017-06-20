@@ -7,45 +7,22 @@
 <h2>Your Family</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    <a href="@Url.Action("Create", "FamilyMembers")" class="btn btn-success btn-sm" data-toggle="tooltip" data-placement="top" title="Add a new member"> <span class="glyphicon glyphicon-plus-sign"></span> Add</a>
 </p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.FirstName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.MemberDOB)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.PathToMemberPhoto)
-        </th>
-        @*<th>
-            @Html.DisplayNameFor(model => model.UserId)
-        </th>*@
-        <th></th>
-    </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.FirstName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.MemberDOB)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.PathToMemberPhoto)
-        </td>
-        @*<td>
-            @Html.DisplayFor(modelItem => item.UserId)
-        </td>*@
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id = item.FamilyMemberId }) |
-            @Html.ActionLink("Details", "Details", new { id = item.FamilyMemberId }) |
-            @Html.ActionLink("Delete", "Delete", new { id = item.FamilyMemberId })
-        </td>
-    </tr>
-}
+<div class="row">
+    @foreach (var item in Model)
+    {
+        <div class="memberCard col-xs-12 col-md-6 col-lg-3">
+            <img src="@Html.DisplayFor(modelItem => item.PathToMemberPhoto)" alt="Avatar" style="width:100%">
+            <div class="container">
+                <h4><b>@Html.DisplayFor(modelItem => item.FirstName)</b></h4>
+                <p>Birthday: @Html.DisplayFor(modelItem => item.MemberDOB)</p>
+                
+                <a href="@Url.Action("Edit", "FamilyMembers", new { id = item.FamilyMemberId })" class="btn btn-primary btn-sm"> <span class="glyphicon glyphicon-pencil"></span></a>
+                <a href="@Url.Action("Delete", "FamilyMembers", new { id = item.FamilyMemberId })" class="btn btn-danger btn-sm"> <span class="glyphicon glyphicon-trash"></span></a>
 
-</table>
+            </div>
+        </div>
+    }
+</div>
