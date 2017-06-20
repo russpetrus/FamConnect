@@ -17,8 +17,8 @@
     color: white;
     width: 100%;
     height: auto;
-    background-image: -webkit-linear-gradient(270deg, rgba(82, 147, 204, .5), rgba(82, 147, 204, .5)), url('Images/hands-1950985_1920.jpg');
-    background-image: linear-gradient(180deg, rgba(82, 147, 204, .5), rgba(82, 147, 204, .5)), url('Images/hands-1950985_1920.jpg');
+    background-image: -webkit-linear-gradient(270deg, rgba(82, 147, 204, .1), rgba(82, 147, 204, .7)), url('Images/hands-1950985_1920.jpg');
+    background-image: linear-gradient(180deg, rgba(82, 147, 204, .1) rgba(82, 147, 204, .7)), url('Images/hands-1950985_1920.jpg');
     background-position: 0px 0px, 50% 50%;
     background-size: auto, cover;
     background-repeat: repeat, no-repeat;
@@ -89,4 +89,15 @@
 
 #loginForm{
     margin-top:10vh;
+}
+
+.landing-logo{
+    display:block;
+    width:50%;
+    height:auto;
+    margin:0 auto;
+}
+
+.landing-login{
+    margin-bottom:20px;
 }
