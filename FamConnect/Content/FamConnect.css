@@ -1,0 +1,178 @@
+﻿body {
+}
+
+
+
+.header-row{
+    padding-top:10vh;
+}
+
+h2{
+    color:#5293cc;
+    text-align:center;
+    font-size: 80px;
+    letter-spacing: -1px;
+    margin-top: 10px;
+    /*margin: 40px 0px 15px;*/
+    font-family: Gorditas, cursive;
+}
+
+.form-group{
+    margin-top:20px;
+
+}
+
+h4{
+    margin-top: 50px;
+    color:black;
+    text-align:center;
+    font-size: 50px;
+     /*margin: 40px 0px 15px;*/
+    font: 30px/30px Gorditas, cursive;
+
+
+}
+
+.form-control {
+    font-size: 18px;
+    color: #808080;
+}
+
+/*.form-control {
+    display: block;
+    box-sizing: border-box;
+    height: 75px;
+    width: 100%;
+    color: rgb(82, 147, 204);
+    margin-top: 10px;
+    padding: 20px 20px 20px 70px;
+    background: rgb(170, 207, 239);
+    border-width: initial;
+    border-style: none;
+    border-color: initial;
+    border-image: initial;
+    border-radius: 10px;
+    font: 20px/20px Raleway;
+}*/
+
+    
+input,
+select,
+textarea {
+    max-width: 500px;
+}
+
+
+.popup {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    font-family: Gorditas, cursive;
+    font-size:25px;
+    margin-top:20px;
+    color:black;
+    text-align:center;
+}
+
+/* popup */
+.popup .popuptext {
+    visibility: hidden;
+    width: 320px;
+    /*background-color: #555;*/
+   background-color: rgb(170, 207, 239);
+    color: #808080;
+    font-family: Raleway, sans-serif;
+    font-size: 18px;
+    text-align: center;
+    border-radius: 6px;
+    padding: 8px 0;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    margin-left: -80px;
+     
+}
+
+/* Popup arrow */
+.popup .popuptext::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: rgb(170, 207, 239) transparent transparent transparent;
+}
+
+/* Toggle this class - hide and show the popup */
+.popup .show {
+    visibility: visible;
+    -webkit-animation: fadeIn 1s;
+    animation: fadeIn 1s;
+}
+
+/* Add animation (fade in the popup) */
+@-webkit-keyframes fadeIn {
+    from {opacity: 0;} 
+    to {opacity: 1;}
+}
+
+@keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity:1 ;}
+}
+
+ 
+ 
+ .myButton {
+	background-color:#6fce34;
+	-moz-border-radius:7px;
+	/*-webkit-border-radius:5px;*/
+	border-radius:7px;
+    border:none;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Gorditas, cursive;
+	font-size:35px;
+	font-weight:normal;
+	padding:12px 45px;
+	text-decoration:none;
+}
+.myButton:hover {
+	background-color:#fc941e;
+}
+.myButton:active {
+	position:relative;
+	top:1px;
+}
+
+.action{
+    font-family:Gorditas,cursive;
+}
+
+.custom-button{
+    display: block;
+    width: auto;
+    margin: 0 auto;
+    font-family: Gorditas, cursive;
+    font-size:32px;
+    padding:10px 30px 10px 30px;
+}
+
+input[type="date"]:before {
+    content: attr(placeholder) !important;
+    color: #999;
+    opacity: 1;
+    margin-right: 0.5em;
+  }
+  input[type="date"]:focus:before,
+  input[type="date"]:valid:before {
+    content: "";
+  }

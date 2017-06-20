@@ -4,72 +4,113 @@
     ViewBag.Title = "Create";
 }
 
-<h2>Create</h2>
+
+<link href="~/Content/FamConnect.css" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css?family=Gorditas|Raleway" rel="stylesheet">
 
 
-@using (Html.BeginForm()) 
-{
-    @Html.AntiForgeryToken()
-    
-    <div class="form-horizontal">
-        <h4>Milestone</h4>
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <div class="form-group">
-            @Html.LabelFor(model => model.MilestoneReward, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.MilestoneReward, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.MilestoneReward, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.MilestonePointsRequired, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.MilestonePointsRequired, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.MilestonePointsRequired, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-    @* accomplished set to false by the controller by default *@    
-    @*<div class="form-group">
-            @Html.LabelFor(model => model.Accomplished, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                <div class="checkbox">
-                    @Html.EditorFor(model => model.Accomplished)
-                    @Html.ValidationMessageFor(model => model.Accomplished, "", new { @class = "text-danger" })
-                </div>
-            </div>
-        </div>*@
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.PathToMileStonePhoto, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.PathToMileStonePhoto, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.PathToMileStonePhoto, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        @*userid set in controller
-        <div class="form-group">
-            @Html.LabelFor(model => model.UserId, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.UserId, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.UserId, "", new { @class = "text-danger" })
-            </div>
-        </div>*@
-
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
-            </div>
-        </div>
+<div class="header-row">
+    <div class="col-md-12 text-center">
+        <span class="fa-stack fa-4x">
+            <i class="fa fa-circle-thin fa-stack-2x"></i>
+            <i class="fa fa-flag fa-stack-1x"></i>
+        </span>
+        <h2>Create a Milestone</h2>
     </div>
-}
-
-<div>
-    @Html.ActionLink("Back to List", "Index")
 </div>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-4">
+            @*This div is a popup that defines the word Milestone*@
+            <div class="popup" onclick="showMilestone()">
+                What is a Milestone?
+                <span class="popuptext" id="milestoneDescription">A Milestone is a set point total that family members achieve by completing acts of kindness called Connection Actions. More questions? Click the app FAQ page.</span>
+            </div>
+        </div>
+        <div class="col-md-4">
+            @*This div is a popup to explain reward ideas.*@
+            <div class="popup" onclick="showReward()">
+                Need some ideas for Rewards?
+                <span class="popuptext" id="rewardDescription">How about a family trip for ice cream, to the movies, the theater...vacation?! Be creative!</span>
+            </div>
+        </div>
+        <div class="col-md-4">
+            @*This div is a link back to the FAQ view*@
+            @Html.ActionLink("Family Connect FAQ", "Contact", "Home", new object { }, new { @class = "popup" })
+        </div>
+    </div> @*ends row*@
+
+    <div class="row">
+        <div class="col-md-3">@*empty column for centering*@</div>
+        <div class="col-md-6">
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+
+                <div class="form-horizontal">
+                    <hr />
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    <div class="form-group">
+                        @*@Html.LabelFor(model => model.MilestoneReward, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                        <div class="col-md-12">
+                            @Html.EditorFor(model => model.MilestoneReward, new
+                       {
+                           htmlAttributes = new
+                           {
+                               @class = "form-control",
+                               placeholder = HttpUtility.HtmlDecode("&#xf091; E.g. Trip for ice-cream"),
+                               style = "font-family:Arial, FontAwesome"
+                           }
+                       })
+                            @Html.ValidationMessageFor(model => model.MilestoneReward, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @*@Html.LabelFor(model => model.MilestonePointsRequired, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                        <div class="col-md-12">
+                            @Html.EditorFor(model => model.MilestonePointsRequired, new { htmlAttributes = new { @class = "form-control", @placeholder = "Type a number between 25 and 200" } })
+                            @Html.ValidationMessageFor(model => model.MilestonePointsRequired, "", new { @class = "text-danger" })
+
+                        </div>
+                    </div>
+
+                    @* accomplished set to false by the controller by default *@
+
+                    @*milestone photo not being used*@
+
+                    @*userid set in controller*@
+
+                    <div class="form-group">
+                        <div class="col-md-12">
+                            <input type="submit" value="Done!" class="btn btn-default custom-button" />
+                        </div>
+                    </div>
+                </div> @*ends form*@
+            }
+        </div> @*ends column containing form*@
+        <div class="col-md-3">@*empty column for centering*@</div>
+    </div> @*ends row containing columns for centering and form*@
+    <div>
+        @Html.ActionLink("View all Milestones", "Index")
+    </div>
+</div> @*ends container-fluid*@
+
+
+<script>
+    // When the user clicks on div, open the popup
+    function showMilestone() {
+        var milestoneDesc = document.getElementById("milestoneDescription");
+        milestoneDesc.classList.toggle("show");
+    }
+
+    function showReward() {
+        var rewardDesc = document.getElementById("rewardDescription");
+        rewardDesc.classList.toggle("show")
+    }
+</script>
+
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.5\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.5\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
   <Import Project="..\packages\Microsoft.Net.Compilers.2.2.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.2.2.0\build\Microsoft.Net.Compilers.props')" />
@@ -246,16 +246,33 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\aspnet-FamConnect-20170609055700.mdf" />
+    <Content Include="App_Data\aspnet-FamConnect-20170609055700_log.ldf">
+      <DependentUpon>aspnet-FamConnect-20170609055700.mdf</DependentUpon>
+    </Content>
+    <Content Include="Content\children hugging pixabay.png" />
+    <Content Include="Content\Images\baby.png" />
+    <Content Include="Content\Images\children hugging pixabay.png" />
+    <Content Include="Content\Images\ice cream sundae 100px.png" />
+    <Content Include="Content\Images\lightbulb resize.png" />
+    <Content Include="Content\Images\lightbulb.png" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
-    <Content Include="Content\Images\Dorrian.jpg" />
-    <Content Include="Content\Images\Hope.jpg" />
-    <Content Include="Content\Images\Luis.jpg" />
-    <Content Include="Content\Images\Russ.jpg" />
-    <Content Include="Content\Images\Tiffany.jpg" />
-    <Content Include="Content\Images\WCC_MD4_7400.jpg" />
+    <Content Include="App_Data\Images\Dorrian.jpg" />
+    <Content Include="App_Data\Images\Hope.jpg" />
+    <Content Include="App_Data\Images\Luis.jpg" />
+    <Content Include="App_Data\Images\Russ.jpg" />
+    <Content Include="App_Data\Images\Tiffany.jpg" />
+    <Content Include="App_Data\Images\WCC_MD4_7400.jpg" />
+    <Content Include="Content\FamConnect.css" />
+    <Content Include="Content\Images\castle.png" />
+    <Content Include="Content\Images\girl image.png" />
+    <Content Include="Content\Images\lady with bob image.png" />
+    <Content Include="Content\Images\question mark 100px.png" />
+    <Content Include="Content\Images\ribbon 80px.png" />
+    <Content Include="Content\Images\round-pennant-with-ribbon flaticon.com atreq.png" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -345,9 +362,7 @@
     <Content Include="Views\FamilyMembers\InitialCreate.cshtml" />
     <Content Include="Views\Milestones\InitialCreate.cshtml" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="App_Data\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
