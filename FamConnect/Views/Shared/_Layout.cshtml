@@ -12,7 +12,7 @@
 
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar navbar-default navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -21,28 +21,24 @@
                     <span class="icon-bar"></span>
                 </button>
                 <a href='@Url.Action("Index", "Home")'>
-                    <img src='@Url.Content("~/Content/Images/familyconnectlogohorizontalallwhite.png")' class="navbar-brand" />
+                    <img src='@Url.Content("~/Content/Images/familyconnectlogohorizontal.png")' class="navbar-brand" />
                 </a>
                 @*@Html.ActionLink("Family Connect", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })*@
             </div>
             <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("FamilyMembers", "Index", "FamilyMembers")</li>
-                    <li>@Html.ActionLink("Milestones", "Index", "Milestones")</li>
-                    <li>@Html.ActionLink("ConnectionActions", "Index", "ConnectionActions")</li>
-                </ul>
+       
                 @Html.Partial("_LoginPartial")
             </div>
         </div>
     </div>
-    <div class="container body-content">
+    <div class="container-fluid">
         @RenderBody()
         <hr />
         <footer>
             <p>
                 &copy; @DateTime.Now.Year - Family Connect Application &nbsp;
                 @Html.ActionLink("About", "About", "Home") |
+                @Html.ActionLink("FAQ", "Contact", "Home") |
                 @Html.ActionLink("Family Members", "Index", "FamilyMembers") |
                 @Html.ActionLink("Milestones", "Index", "Milestones") |
                 @Html.ActionLink("Connection Actions", "Index", "ConnectionActions")

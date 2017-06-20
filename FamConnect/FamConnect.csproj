@@ -254,7 +254,7 @@
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
-    <Content Include="Content\bootstrap.min.css" />    
+    <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\FamConnect.css" />
     <Content Include="Content\FirstTimeCreateViews.css" />
     <Content Include="Content\Images\Dorrian.jpg" />
@@ -264,6 +264,7 @@
     <Content Include="Content\Images\familyconnectlogohorizontalallblue_720.png" />
     <Content Include="Content\Images\familyconnectlogohorizontalallorange.png" />
     <Content Include="Content\Images\familyconnectlogohorizontalallwhite.png" />
+    <Content Include="Content\Images\familypicture.png" />
     <Content Include="Content\Images\hands-1950985_1920.jpg" />
     <Content Include="Content\Images\Hope.jpg" />
     <Content Include="Content\Images\Luis.jpg" />
@@ -360,9 +361,7 @@
     <Content Include="Views\FamilyMembers\InitialCreate.cshtml" />
     <Content Include="Views\Milestones\InitialCreate.cshtml" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Content\Images\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
