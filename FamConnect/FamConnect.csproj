@@ -251,11 +251,6 @@
       <DependentUpon>aspnet-FamConnect-20170609055700.mdf</DependentUpon>
     </Content>
     <Content Include="Content\children hugging pixabay.png" />
-    <Content Include="Content\Images\baby.png" />
-    <Content Include="Content\Images\children hugging pixabay.png" />
-    <Content Include="Content\Images\ice cream sundae 100px.png" />
-    <Content Include="Content\Images\lightbulb resize.png" />
-    <Content Include="Content\Images\lightbulb.png" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -267,12 +262,6 @@
     <Content Include="App_Data\Images\Tiffany.jpg" />
     <Content Include="App_Data\Images\WCC_MD4_7400.jpg" />
     <Content Include="Content\FamConnect.css" />
-    <Content Include="Content\Images\castle.png" />
-    <Content Include="Content\Images\girl image.png" />
-    <Content Include="Content\Images\lady with bob image.png" />
-    <Content Include="Content\Images\question mark 100px.png" />
-    <Content Include="Content\Images\ribbon 80px.png" />
-    <Content Include="Content\Images\round-pennant-with-ribbon flaticon.com atreq.png" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -362,7 +351,9 @@
     <Content Include="Views\FamilyMembers\InitialCreate.cshtml" />
     <Content Include="Views\Milestones\InitialCreate.cshtml" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Content\Images\" />
+  </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
