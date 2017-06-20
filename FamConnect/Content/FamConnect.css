@@ -217,6 +217,7 @@ input[type="date"]:before {
        font-family:Gorditas, cursive;
        font-size:25px;
        text-align:center;
+       color:#fc941e;
    }
    .panel-body{
        font-family:Raleway, sans-serif;
