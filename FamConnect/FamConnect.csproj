@@ -251,11 +251,13 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Images\Dorrian.jpg" />
+    <Content Include="Content\Images\hands-1950985_1920.jpg" />
     <Content Include="Content\Images\Hope.jpg" />
     <Content Include="Content\Images\Luis.jpg" />
     <Content Include="Content\Images\Russ.jpg" />
     <Content Include="Content\Images\Tiffany.jpg" />
     <Content Include="Content\Images\WCC_MD4_7400.jpg" />
+    <Content Include="Content\LandingPageStyles.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
