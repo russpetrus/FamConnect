@@ -33,6 +33,7 @@ progress,
 video {
   display: inline-block;
   vertical-align: baseline;
+
 }
 audio:not([controls]) {
   display: none;
@@ -2506,6 +2507,8 @@ legend {
   border-bottom: 1px solid #e5e5e5;
 }
 label {
+    font-family: 'Gorditas', cursive;       
+    color: #64ce34;
   display: inline-block;
   max-width: 100%;
   margin-bottom: 5px;
@@ -2547,17 +2550,18 @@ output {
   color: #555;
 }
 .form-control {
-  display: block;
+  font-family: 'Raleway', sans-serif
+  display block;
   width: 100%;
-  height: 34px;
-  padding: 6px 12px;
-  font-size: 14px;
+  height: 75px;
+  padding: 20px 20px 20px 70px;
+  font-size: 16px;
   line-height: 1.42857143;
   color: #555;
-  background-color: #fff;
+  background-color: rgb(170, 207, 239);
   background-image: none;
-  border: 1px solid #ccc;
-  border-radius: 4px;
+  border: none;
+  border-radius: 10px;
   -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
           box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
   -webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
@@ -2941,6 +2945,8 @@ select[multiple].input-lg {
   .form-inline .control-label {
     margin-bottom: 0;
     vertical-align: middle;
+    font-family: 'Gorditas', cursive;
+    color: #61fc00 
   }
   .form-inline .radio,
   .form-inline .checkbox {
@@ -3001,10 +3007,13 @@ select[multiple].input-lg {
   }
 }
 .btn {
-  display: inline-block;
-  padding: 6px 12px;
+  font-family: 'Gorditas';
+  display: block;
+  width: auto;
+  margin: 30px auto auto auto;
+  padding: 15px 50px;
   margin-bottom: 0;
-  font-size: 14px;
+  font-size: 30px;
   font-weight: normal;
   line-height: 1.42857143;
   text-align: center;
@@ -3057,9 +3066,9 @@ fieldset[disabled] a.btn {
   pointer-events: none;
 }
 .btn-default {
-  color: #333;
-  background-color: #fff;
-  border-color: #ccc;
+  color: white;
+  background-color: #6fce34;
+  
 }
 .btn-default:focus,
 .btn-default.focus {
@@ -3068,9 +3077,9 @@ fieldset[disabled] a.btn {
   border-color: #8c8c8c;
 }
 .btn-default:hover {
-  color: #333;
-  background-color: #e6e6e6;
-  border-color: #adadad;
+  color: white;
+  background-color: #fc951e;
+  
 }
 .btn-default:active,
 .btn-default.active,
