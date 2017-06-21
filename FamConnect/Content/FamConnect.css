@@ -51,8 +51,9 @@ h5{
 }
 
 .form-control {
-    font-size: 22px;
+    font-size: 18px;
     color: #808080;
+    height:60px;
 }
 
 /*.form-control {
@@ -194,6 +195,7 @@ input[type="date"]:before {
   input[type="date"]:valid:before {
     content: "";
   }
+
 
   .fa-flag{
       color:#6fce34; 

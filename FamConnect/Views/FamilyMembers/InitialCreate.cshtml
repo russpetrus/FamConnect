@@ -6,7 +6,7 @@
 <link href="~/content/firsttimecreateviews.css" rel="stylesheet" />
 
 
-<div class="container-fluid createFormWrapper">
+<div class="container createFormWrapper">
     <div class="row">
         <div class="col-md-12 text-center blueText">
             <span class="fa-stack fa-4x">
@@ -33,7 +33,7 @@
                            {
                                @class = "form-control create-form-input",
                                placeholder = HttpUtility.HtmlDecode("&#xf007; First Name"),
-                               style = "font-family:Arial, FontAwesome"
+                               style = "font-family:Raleway, FontAwesome"
                            }
                        })
                             @Html.ValidationMessageFor(model => model.FirstName, "", new { @class = "text-danger" })
@@ -47,7 +47,7 @@
                            {
                                @class = "form-control create-form-input",
                                placeholder = HttpUtility.HtmlDecode("&#xf073; Birthday"),
-                               style = "font-family:Arial, FontAwesome"
+                               style = "font-family:Raleway, FontAwesome"
                            }
                        })
                             @Html.ValidationMessageFor(model => model.MemberDOB, "", new { @class = "text-danger" })
@@ -61,7 +61,7 @@
                            {
                                @class = "form-control create-form-input",
                                placeholder = HttpUtility.HtmlDecode("&#xf03e; Photo"),
-                               style = "font-family:Arial, FontAwesome"
+                               style = "font-family:Raleway, FontAwesome"
                            }
                        })
                             @Html.ValidationMessageFor(model => model.PathToMemberPhoto, "", new { @class = "text-danger" })
@@ -76,9 +76,11 @@
                 </div>
             }
         </div>
-        <div class="col-md-6 text-center">
-            <h3 class="orangeText">Your Family</h3>
-            <h5>As you add family members, they will appear below.</h5>
+        <div class="col-md-6">
+            <div class="text-center">
+                <h3 class="orangeText">Your Family</h3>
+                <h5>As you add family members, they will appear below.</h5>
+            </div>
             @Html.Action("IndexCreateMembers", "FamilyMembers")
             <div class="col-md-12 text-center">
                 <h3 class="orangeText"> Finished Adding Family Members?</h3>

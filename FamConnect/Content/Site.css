@@ -99,7 +99,7 @@ textarea {
     padding-right: 0px;
     /*background-image: url("Images/WCC_MD4_7400.jpg");*/
     background-size: cover;
-    background-position: top;
+    background-position: center;
 }
 
 .familyContent {
@@ -174,4 +174,18 @@ a:hover, a:focus {
 
 .btn-success {
     background-color: #6fce34;
+}
+.navbar-brand{
+    padding:4px;
+}
+
+.navbar-inverse{
+    background-color:white;
+    border-bottom: solid 1px #ccc;
+}
+
+#RecentConnectionPanel {
+margin-left:2px;
+margin-right:2px;
+
 }
