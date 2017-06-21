@@ -112,7 +112,7 @@
                             @*@Html.LabelFor(model => model.FamilyMemberId, "FamilyMemberId", htmlAttributes: new { @class = "control-label col-md-2" })*@
                             <div class="col-md-12">
                                 @Html.DropDownList("FamilyMemberId", null, htmlAttributes: new { @class = "form-control",
-                               data_placeholder = HttpUtility.HtmlDecode("&#xf007; Who completed this action?"),
+                               placeholder = HttpUtility.HtmlDecode("&#xf007; Who completed this action?"),
                                style = "font-family:Raleway, FontAwesome"
                            })
                                 @Html.ValidationMessageFor(model => model.FamilyMemberId, "", new { @class = "text-danger" })
