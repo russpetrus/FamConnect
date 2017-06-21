@@ -1,7 +1,7 @@
 ﻿@model FamConnect.Models.Milestone
 
 @{
-    ViewBag.Title = "Create";
+    ViewBag.Title = "Create A Milestone";
 }
 
 
@@ -9,52 +9,53 @@
 <link href="https://fonts.googleapis.com/css?family=Gorditas|Raleway" rel="stylesheet">
 
 
-<div class="header-row">
-    <div class="col-md-12 text-center">
-        <span class="fa-stack fa-4x">
-            <i class="fa fa-circle-thin fa-stack-2x"></i>
-            <i class="fa fa-trophy fa-stack-1x"></i>
-        </span>
-        <h2>Create a Milestone</h2>
+<div class="container">
+    <div class="header-row">
+        <div class="col-md-12 text-center">
+            <span class="fa-stack fa-4x">
+                <i class="fa fa-circle-thin fa-stack-2x"></i>
+                <i class="fa fa-trophy fa-stack-1x"></i>
+            </span>
+            <h2>Create a Milestone</h2>
+        </div>
     </div>
-</div>
 
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-md-4">
-            @*This div is a popup that defines the word Milestone*@
-            <div class="popup" onclick="showMilestone()">
-                What is a Milestone?
-                <span class="popuptext" id="milestoneDescription">A Milestone is a set point total that family members achieve by completing acts of kindness called Connection Actions. More questions? Click the app FAQ page.</span>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-4 text-center">
+                @*This div is a popup that defines the word Milestone*@
+                <div class="popup" onclick="showMilestone()">
+                    What is a Milestone?
+                    <span class="popuptext" id="milestoneDescription">A Milestone is a set point total that family members achieve by completing acts of kindness called Connection Actions. More questions? Click the app FAQ page.</span>
+                </div>
             </div>
-        </div>
-        <div class="col-md-4">
-            @*This div is a popup to explain reward ideas.*@
-            <div class="popup" onclick="showReward()">
-                Need some ideas for Rewards?
-                <span class="popuptext" id="rewardDescription">How about a family trip for ice cream, to the movies, the theater...vacation?! Be creative!</span>
+            <div class="col-md-4 text-center">
+                @*This div is a popup to explain reward ideas.*@
+                <div class="popup" onclick="showReward()">
+                    Need some ideas for Rewards?
+                    <span class="popuptext" id="rewardDescription">How about a family trip for ice cream, to the movies, the theater...vacation?! Be creative!</span>
+                </div>
             </div>
-        </div>
-        <div class="col-md-4">
-            @*This div is a link back to the FAQ view*@
-            @Html.ActionLink("Family Connect FAQ", "Contact", "Home", new object { }, new { @class = "popup" })
-        </div>
-    </div> @*ends row*@
+            <div class="col-md-4 text-center">
+                @*This div is a link back to the FAQ view*@
+                @Html.ActionLink("Family Connect FAQ", "Contact", "Home", new object { }, new { @class = "popup" })
+            </div>
+        </div> @*ends row*@
 
-    <div class="row">
-        <div class="col-md-3">@*empty column for centering*@</div>
-        <div class="col-md-6">
-            @using (Html.BeginForm())
+        <div class="row">
+            <div class="col-md-3">@*empty column for centering*@</div>
+            <div class="col-md-6">
+                @using (Html.BeginForm())
             {
-                @Html.AntiForgeryToken()
+                    @Html.AntiForgeryToken()
 
-                <div class="form-horizontal">
-                    <hr />
-                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-                    <div class="form-group">
-                        @*@Html.LabelFor(model => model.MilestoneReward, htmlAttributes: new { @class = "control-label col-md-2" })*@
-                        <div class="col-md-12">
-                            @Html.EditorFor(model => model.MilestoneReward, new
+                    <div class="form-horizontal">
+                        <hr />
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        <div class="form-group">
+                            @*@Html.LabelFor(model => model.MilestoneReward, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                            <div class="col-md-12">
+                                @Html.EditorFor(model => model.MilestoneReward, new
                        {
                            htmlAttributes = new
                            {
@@ -63,44 +64,48 @@
                                style = "font-family:Raleway, FontAwesome"
                            }
                        })
-                            @Html.ValidationMessageFor(model => model.MilestoneReward, "", new { @class = "text-danger" })
+                                @Html.ValidationMessageFor(model => model.MilestoneReward, "", new { @class = "text-danger" })
+                            </div>
                         </div>
-                    </div>
-                    @*fa-arrow-up [&#xf062;]*@
-                    <div class="form-group">
-                        @*@Html.LabelFor(model => model.MilestonePointsRequired, htmlAttributes: new { @class = "control-label col-md-2" })*@
-                        <div class="col-md-12">
-                            @Html.EditorFor(model => model.MilestonePointsRequired, new { htmlAttributes = new {
-                           @class = "form-control",
-                           placeholder = HttpUtility.HtmlDecode("&#xf14a;  Type a number between 25 and 200"),
-                           style = "font-family:Raleway, FontAwesome"
-                       } })
-                            @Html.ValidationMessageFor(model => model.MilestonePointsRequired, "", new { @class = "text-danger" })
+                        @*fa-arrow-up [&#xf062;]*@
+                        <div class="form-group">
+                            @*@Html.LabelFor(model => model.MilestonePointsRequired, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                            <div class="col-md-12">
+                                @Html.EditorFor(model => model.MilestonePointsRequired, new
+                       {
+                           htmlAttributes = new
+                           {
+                               @class = "form-control",
+                               placeholder = HttpUtility.HtmlDecode("&#xf14a;  Type a number between 25 and 200"),
+                               style = "font-family:Raleway, FontAwesome"
+                           }
+                       })
+                                @Html.ValidationMessageFor(model => model.MilestonePointsRequired, "", new { @class = "text-danger" })
 
+                            </div>
                         </div>
-                    </div>
 
-                    @* accomplished set to false by the controller by default *@
+                        @* accomplished set to false by the controller by default *@
 
-                    @*milestone photo not being used*@
+                        @*milestone photo not being used*@
 
-                    @*userid set in controller*@
+                        @*userid set in controller*@
 
-                    <div class="form-group">
-                        <div class="col-md-12">
-                            <input type="submit" value="Done!" class="btn btn-default custom-button" />
+                        <div class="form-group">
+                            <div class="col-md-12 center-block">
+                                <input type="submit" value="Done!" class="btn btn-default custom-button" />
+                            </div>
                         </div>
-                    </div>
-                </div> @*ends form*@
-            }
-        </div> @*ends column containing form*@
-        <div class="col-md-3">@*empty column for centering*@</div>
-    </div> @*ends row containing columns for centering and form*@
-    <div>
-        @Html.ActionLink("View all Milestones", "Index", new object { }, new { @class = "action" })
-    </div>
-</div> @*ends container-fluid*@
-
+                    </div> @*ends form*@
+                }
+            </div> @*ends column containing form*@
+            <div class="col-md-3">@*empty column for centering*@</div>
+        </div> @*ends row containing columns for centering and form*@
+        <div>
+            @Html.ActionLink("View all Milestones", "Index", new object { }, new { @class = "action" })
+        </div>
+    </div> @*ends container-fluid*@
+</div>
 
 <script>
     // When the user clicks on div, open the popup

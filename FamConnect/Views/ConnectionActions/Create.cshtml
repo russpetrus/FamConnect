@@ -8,55 +8,56 @@
 <link href="~/Content/FamConnect.css" rel="stylesheet" />
 <link href="https://fonts.googleapis.com/css?family=Gorditas|Raleway" rel="stylesheet">
 
-<div class="header-row">
-    <div class="col-md-12 text-center">
-        <span class="fa-stack fa-4x">
-            <i class="fa fa-circle-thin fa-stack-2x"></i>
-            <i class="fa fa-users fa-stack-1x"></i>
-        </span>
-        <h2>Create a Connection Action</h2>
+<div class="container">
+    <div class="header-row">
+        <div class="col-md-12 text-center">
+            <span class="fa-stack fa-4x">
+                <i class="fa fa-circle-thin fa-stack-2x"></i>
+                <i class="fa fa-users fa-stack-1x"></i>
+            </span>
+            <h2>Create a Connection Action</h2>
+        </div>
     </div>
-</div>
 
 
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-md-4">
-            @*This div is a popup that defines the word Connection Action*@
-            <div class="popup" onclick="showMilestone()">
-                What is a Connection Action?
-                <span class="popuptext" id="milestoneDescription">A Connection Action is an act of kindness that a family member completes for another family member and then reports to the Team Captain to log into the app. More questions? Click the app FAQ page.</span>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-4 text-center">
+                @*This div is a popup that defines the word Connection Action*@
+                <div class="popup" onclick="showMilestone()">
+                    What is a Connection Action?
+                    <span class="popuptext" id="milestoneDescription">A Connection Action is an act of kindness that a family member completes for another family member and then reports to the Team Captain to log into the app. More questions? Click the app FAQ page.</span>
+                </div>
             </div>
-        </div>
-        <div class="col-md-4">
-            @*This div is a popup to explain Connection Action ideas.*@
-            <div class="popup" onclick="showReward()">
-                Need some ideas for Connection Actions?
-                <span class="popuptext" id="rewardDescription">Read to a family member, make a card for grandma, the theater...vacation?! Be creative!</span>
+            <div class="col-md-4 text-center">
+                @*This div is a popup to explain Connection Action ideas.*@
+                <div class="popup" onclick="showReward()">
+                    Need some ideas for Connection Actions?
+                    <span class="popuptext" id="rewardDescription">Read to a family member, make a card for grandma, the theater...vacation?! Be creative!</span>
+                </div>
             </div>
-        </div>
 
-        <div class="col-md-4">
-            @*This div is a link back to the FAQ view*@
-            @Html.ActionLink("Family Connect FAQ", "Contact", "Home", new object { }, new { @class = "popup" })
-        </div>
-    </div> @*ends row*@
-    <div class="row">
-        <div class="col-md-3">@*empty column for centering*@</div>
-        <div class="col-md-6">
+            <div class="col-md-4 text-center">
+                @*This div is a link back to the FAQ view*@
+                @Html.ActionLink("Family Connect FAQ", "Contact", "Home", new object { }, new { @class = "popup" })
+            </div>
+        </div> @*ends row*@
+        <div class="row">
+            <div class="col-md-3">@*empty column for centering*@</div>
+            <div class="col-md-6 center-block">
 
-            @using (Html.BeginForm())
+                @using (Html.BeginForm())
             {
-                @Html.AntiForgeryToken()
+                    @Html.AntiForgeryToken()
 
-                <div class="form-horizontal">
+                    <div class="form-horizontal">
 
-                    <hr />
-                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-                    <div class="form-group">
-                        @*@Html.LabelFor(model => model.ConnectionActionDescription, htmlAttributes: new { @class = "control-label col-md-2" })*@
-                        <div class="col-md-12">
-                            @Html.EditorFor(model => model.ConnectionActionDescription, new
+                        <hr />
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        <div class="form-group">
+                            @*@Html.LabelFor(model => model.ConnectionActionDescription, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                            <div class="col-md-12">
+                                @Html.EditorFor(model => model.ConnectionActionDescription, new
                        {
                            htmlAttributes = new
                            {
@@ -65,14 +66,14 @@
                                style = "font-family:Raleway, FontAwesome"
                            }
                        })
-                            @Html.ValidationMessageFor(model => model.ConnectionActionDescription, "", new { @class = "text-danger" })
+                                @Html.ValidationMessageFor(model => model.ConnectionActionDescription, "", new { @class = "text-danger" })
+                            </div>
                         </div>
-                    </div>
 
-                    <div class="form-group">
-                        @*@Html.LabelFor(model => model.PointsEarned, htmlAttributes: new { @class = "control-label col-md-2" })*@
-                        <div class="col-md-12">
-                            @Html.EditorFor(model => model.PointsEarned, new
+                        <div class="form-group">
+                            @*@Html.LabelFor(model => model.PointsEarned, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                            <div class="col-md-12">
+                                @Html.EditorFor(model => model.PointsEarned, new
                        {
                            htmlAttributes = new
                            {
@@ -81,52 +82,57 @@
                                style = "font-family:Raleway, FontAwesome"
                            }
                        })
-                            @Html.ValidationMessageFor(model => model.PointsEarned, "", new { @class = "text-danger" })
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        @*@Html.LabelFor(model => model.ConnectionActionDate, htmlAttributes: new { @class = "control-label col-md-2" })*@
-                        <div class="col-md-12">
-                            @Html.EditorFor(model => model.ConnectionActionDate, new { htmlAttributes = new { @class = "form-control" } })
-                            @Html.ValidationMessageFor(model => model.ConnectionActionDate, "", new { @class = "text-danger" })
-                        </div>
-                    </div>
-
-                    @* userid set in controller *@
-                     @*<div class="form-group">
-                            @Html.LabelFor(model => model.UserId, htmlAttributes: new { @class = "control-label col-md-2" })
-                            <div class="col-md-10">
-                                @Html.EditorFor(model => model.UserId, new { htmlAttributes = new { @class = "form-control" } })
-                                @Html.ValidationMessageFor(model => model.UserId, "", new { @class = "text-danger" })
+                                @Html.ValidationMessageFor(model => model.PointsEarned, "", new { @class = "text-danger" })
                             </div>
-                        </div>*@ 
+                        </div>
 
-                    @* userid set in controller *@
+                        <div class="form-group">
+                            @*@Html.LabelFor(model => model.ConnectionActionDate, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                            <div class="col-md-12">
+                                @Html.EditorFor(model => model.ConnectionActionDate, new { htmlAttributes = new { @class = "form-control",
+                               placeholder = HttpUtility.HtmlDecode("&#xf073;  Date of Action"),
+                               style = "font-family:Raleway, FontAwesome"
+                           } })
+                                @Html.ValidationMessageFor(model => model.ConnectionActionDate, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
 
-                         <div class="form-group">
+                        @* userid set in controller *@
+                        @*<div class="form-group">
+                                @Html.LabelFor(model => model.UserId, htmlAttributes: new { @class = "control-label col-md-2" })
+                                <div class="col-md-10">
+                                    @Html.EditorFor(model => model.UserId, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.UserId, "", new { @class = "text-danger" })
+                                </div>
+                            </div>*@
+
+                        @* userid set in controller *@
+
+                        <div class="form-group">
                             @*@Html.LabelFor(model => model.FamilyMemberId, "FamilyMemberId", htmlAttributes: new { @class = "control-label col-md-2" })*@
                             <div class="col-md-12">
-                                @Html.DropDownList("FamilyMemberId", null, htmlAttributes: new { @class = "form-control" })
+                                @Html.DropDownList("FamilyMemberId", null, htmlAttributes: new { @class = "form-control",
+                               data_placeholder = HttpUtility.HtmlDecode("&#xf007; Who completed this action?"),
+                               style = "font-family:Raleway, FontAwesome"
+                           })
                                 @Html.ValidationMessageFor(model => model.FamilyMemberId, "", new { @class = "text-danger" })
                             </div>
                         </div>
 
 
-                    <div class="form-group">
-                        <div class="col-md-12">
-                            <input type="submit" value="Done!" class="btn btn-default custom-button" />
+                        <div class="form-group">
+                            <div class="col-md-12 center-block">
+                                <input type="submit" value="Done!" class="btn btn-default custom-button" />
+                            </div>
                         </div>
-                    </div>
-                </div> @*ends form*@
-            }
-        </div> @*ends column containing form*@
-        <div class="col-md-3">@*empty column for centering*@</div>
-    </div> @*ends row containing columns for centering and form*@
+                    </div> @*ends form*@
+                }
+            </div> @*ends column containing form*@
+            <div class="col-md-3">@*empty column for centering*@</div>
+        </div> @*ends row containing columns for centering and form*@
 
-</div> @*ends container-fluid*@
-
-
+    </div> @*ends container-fluid*@
+</div>
 
 
 
