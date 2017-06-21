@@ -4,49 +4,51 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Your Milestones</h2>
+<div class="container">
+    <h2>Your Milestones</h2>
 
-<p>
-    <a href="@Url.Action("Create", "Milestones")" class="btn btn-success btn-sm" data-toggle="tooltip" data-placement="top" title="Add a new milestone"> <span class="glyphicon glyphicon-plus-sign"></span> Add</a>
-</p>
-<div class="row">
-    <div class="panel panel-primary">
-        <div class="panel-heading">
-            <h4>Milestones</h4>
-        </div>
-        <div class="panel-body">
-            <table class="table-striped table table-hover">
-                <tr>
-                    <th>
-                        @Html.DisplayNameFor(model => model.MilestoneReward)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.MilestonePointsRequired)
-                    </th>
-                    <th></th>
-                </tr>
-
-                @foreach (var item in Model)
-                {
+    <p>
+        <a href="@Url.Action("Create", "Milestones")" class="btn btn-success btn-sm" data-toggle="tooltip" data-placement="top" title="Add a new milestone"> <span class="glyphicon glyphicon-plus-sign"></span> Add</a>
+    </p>
+    <div class="row">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h4>Milestones</h4>
+            </div>
+            <div class="panel-body">
+                <table class="table-striped table table-hover">
                     <tr>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.MilestoneReward)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.MilestonePointsRequired)
-                        </td>
-                        <td>
-                            <a href="@Url.Action("Edit", "Milestones", new { id = item.MilestoneId })" class="btn btn-primary btn-sm"> <span class="glyphicon glyphicon-pencil"></span></a>
-
-                            <a href="@Url.Action("Delete", "Milestones", new { id = item.MilestoneId })" class="btn btn-danger btn-sm"> <span class="glyphicon glyphicon-trash"></span></a>
-                        </td>
+                        <th>
+                            @Html.DisplayNameFor(model => model.MilestoneReward)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.MilestonePointsRequired)
+                        </th>
+                        <th></th>
                     </tr>
-                }
 
-            </table>
-        </div>
-        <div class="panel-footer text-left">
-            <b>Current family points: @{Html.RenderAction("GetPoints", "ConnectionActions");}</b>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.MilestoneReward)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.MilestonePointsRequired)
+                            </td>
+                            <td>
+                                <a href="@Url.Action("Edit", "Milestones", new { id = item.MilestoneId })" class="btn btn-primary btn-sm"> <span class="glyphicon glyphicon-pencil"></span></a>
+
+                                <a href="@Url.Action("Delete", "Milestones", new { id = item.MilestoneId })" class="btn btn-danger btn-sm"> <span class="glyphicon glyphicon-trash"></span></a>
+                            </td>
+                        </tr>
+                    }
+
+                </table>
+            </div>
+            <div class="panel-footer text-left">
+                <b>Current family points: @{Html.RenderAction("GetPoints", "ConnectionActions");}</b>
+            </div>
         </div>
     </div>
 </div>

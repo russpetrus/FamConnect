@@ -3,62 +3,64 @@
 @{
     ViewBag.Title = "Delete";
 }
+<div class="container">
+    <h2>Delete</h2>
 
-<h2>Delete</h2>
+    <h3>Are you sure you want to delete this?</h3>
+    <div>
+        <h4>ConnectionAction</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.FamilyMember.FirstName)
+            </dt>
 
-<h3>Are you sure you want to delete this?</h3>
-<div>
-    <h4>ConnectionAction</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.FamilyMember.FirstName)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.FamilyMember.FirstName)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.FamilyMember.FirstName)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.ConnectionActionDescription)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.ConnectionActionDescription)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.ConnectionActionDescription)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.ConnectionActionDescription)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.PointsEarned)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.PointsEarned)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.PointsEarned)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.PointsEarned)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.ConnectionActionDate)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.ConnectionActionDate)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.ConnectionActionDate)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.ConnectionActionDate)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.UserId)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.UserId)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.UserId)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.UserId)
-        </dd>
+        </dl>
 
-    </dl>
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
 
-    @using (Html.BeginForm()) {
-        @Html.AntiForgeryToken()
-
-        <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Back to List", "Index")
-        </div>
-    }
+            <div class="form-actions no-color">
+                <input type="submit" value="Delete" class="btn btn-default" /> |
+                @Html.ActionLink("Back to List", "Index")
+            </div>
+        }
+    </div>
 </div>
