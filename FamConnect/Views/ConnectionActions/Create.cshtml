@@ -108,13 +108,13 @@
 
                         @* userid set in controller *@
 
+
                         <div class="form-group">
                             @*@Html.LabelFor(model => model.FamilyMemberId, "FamilyMemberId", htmlAttributes: new { @class = "control-label col-md-2" })*@
                             <div class="col-md-12">
-                                @Html.DropDownList("FamilyMemberId", null, htmlAttributes: new { @class = "form-control",
-                               placeholder = HttpUtility.HtmlDecode("&#xf007; Who completed this action?"),
-                               style = "font-family:Raleway, FontAwesome"
-                           })
+                                @Html.DropDownList("FamilyMemberId", null, "Select A Family Member", htmlAttributes: new { @class = "form-control",
+
+                           } ) 
                                 @Html.ValidationMessageFor(model => model.FamilyMemberId, "", new { @class = "text-danger" })
                             </div>
                         </div>

@@ -22,7 +22,7 @@
                         <div class="col-md-12">
                             @Html.TextBoxFor(m => m.Email, new { @class = "form-control account-form-input",
                            placeholder = HttpUtility.HtmlDecode("&#xf0e0; Email Address"),
-                           style = "font-family:Arial, FontAwesome"
+                           style = "font-family:Raleway, FontAwesome"
                        })
                             @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
                         </div>
@@ -32,7 +32,7 @@
                         <div class="col-md-12">
                             @Html.PasswordFor(m => m.Password, new { @class = "form-control account-form-input",
                            placeholder = HttpUtility.HtmlDecode("&#xf023; Password"),
-                           style = "font-family:Arial, FontAwesome"
+                           style = "font-family:Raleway, FontAwesome"
                        })
                             @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
                         </div>
