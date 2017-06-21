@@ -246,10 +246,14 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="android-chrome-192x192.png" />
+    <Content Include="android-chrome-512x512.png" />
+    <Content Include="apple-touch-icon.png" />
     <Content Include="App_Data\aspnet-FamConnect-20170609055700.mdf" />
     <Content Include="App_Data\aspnet-FamConnect-20170609055700_log.ldf">
       <DependentUpon>aspnet-FamConnect-20170609055700.mdf</DependentUpon>
     </Content>
+    <Content Include="browserconfig.xml" />
     <Content Include="Content\children hugging pixabay.png" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
@@ -273,6 +277,8 @@
     <Content Include="Content\Images\Tiffany.jpg" />
     <Content Include="Content\Images\WCC_MD4_7400.jpg" />
     <Content Include="Content\LandingPageStyles.css" />
+    <Content Include="favicon-16x16.png" />
+    <Content Include="favicon-32x32.png" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -288,7 +294,10 @@
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
+    <Content Include="manifest.json" />
     <None Include="Scripts\jquery-3.1.1.intellisense.js" />
+    <Content Include="mstile-150x150.png" />
+    <Content Include="safari-pinned-tab.svg" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-3.1.1.js" />
